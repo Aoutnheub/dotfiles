@@ -21,3 +21,5 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 # Input
 SOURCES += main.cpp
+
+RESOURCES = resources.qrc

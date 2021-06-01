@@ -77,7 +77,6 @@ exec --no-startup-id wal -R
 for_window [class=".*"] border pixel 0
 gaps outer 0
 gaps inner 8
-gaps bottom 35
 
 # powermenu
 for_window [title="Power Menu"] move position center
@@ -239,7 +238,7 @@ bindsym $mod+Shift+d mode "DISPLAY"
 bindcode 96 exec --no-startup-id prtsc.sh
 
 # browser
-bindsym $mod+b exec --no-startup-id vivaldi
+bindsym $mod+b exec --no-startup-id vivaldi-stable
 
 # lock
 bindsym $mod+l exec --no-startup-id lock.sh

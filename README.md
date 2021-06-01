@@ -1,5 +1,5 @@
 # Details
-- **OS**: Pop!_OS 20.04
+- **OS**: ArcoLinux
 - **WM**: i3
 - **Terminal**: Kitty
 - **Shell**: Fish
