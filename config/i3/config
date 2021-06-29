@@ -92,9 +92,6 @@ exec --no-startup-id xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Tapp
 exec --no-startup-id xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Drag Enabled" 0
 exec --no-startup-id xinput --set-prop "pointer:USB Gaming Mouse" "libinput Accel Speed" -0.5
 
-# graphic tablet
-bindsym &mod+Shift+t exec --no-startup-id xinput set-prop "HUION PenTablet Pen stylus" --type=float "Coordinate Transformation Matrix" 1.055 0 -0.04 0 1.12 -0.07 0 0 1
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -194,10 +191,10 @@ mode "RESIZE" {
         # These bindings trigger as soon as you enter the resize mode
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width 10 px or 5 ppt
+        bindsym Down resize grow height 10 px or 5 ppt
+        bindsym Up resize shrink height 10 px or 5 ppt
+        bindsym Right resize grow width 10 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Escape mode "default"
