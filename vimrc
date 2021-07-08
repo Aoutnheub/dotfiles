@@ -39,7 +39,6 @@ set nowritebackup
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
-    "Plug 'kyazdani42/nvim-web-devicons'
     Plug 'ryanoasis/vim-devicons'
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'tpope/vim-fugitive'
@@ -54,10 +53,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
     Plug 'jiangmiao/auto-pairs'
     Plug 'thaerkh/vim-workspace'
-    "Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     Plug 'akinsho/nvim-bufferline.lua'
     Plug 'Aoutnheub/notgruvbox'
     Plug 'vim-airline/vim-airline'
+    Plug 'mhinz/vim-startify'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
@@ -132,12 +131,34 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<Tab>" :
+            \ coc#refresh()
 
 " Don't move the cursor back when exiting INSERT
 let CursorColumnI = 0
 autocmd InsertEnter * let CursorColumnI = col('.')
 autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+
+" Startify
+let g:startify_custom_header = [
+            \ '    ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
+            \ '    ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
+            \ '    ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
+            \ '    ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
+            \ '    ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
+            \ '    ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝',
+            \ ]
+
+let g:startify_bookmarks = [
+            \ '~/Projects',
+            \ '~/temp',
+            \ '~/.config/nvim/init.vim',
+            \ ]
+
+let g:startify_lists = [
+            \ { 'type': 'sessions', 'header': ['   ﮦ Sessions'] },
+            \ { 'type': 'bookmarks', 'header': ['    Bookmarks'] },
+            \ { 'type': 'dir', 'header': ['    Current Directory: '. getcwd()] },
+            \ ]
