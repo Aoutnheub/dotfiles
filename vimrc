@@ -34,6 +34,8 @@ set cino=l1
 set encoding=UTF-8
 set sessionoptions-=blank
 set guicursor=
+set nobackup
+set nowritebackup
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
@@ -68,6 +70,19 @@ let g:workspace_autosave = 0
 let g:AutoPairsMultilineClose = 0
 
 let g:mkdp_auto_close = 1
+
+" Coc
+nmap <silent> <C-c> <Plug>(coc-cursors-position)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gh :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " Nvim Tree
 let g:nvim_tree_width = 40
