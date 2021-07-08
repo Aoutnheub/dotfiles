@@ -42,7 +42,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'tpope/vim-fugitive'
     Plug 'dylanaraps/wal.vim'
-    Plug 'morhetz/gruvbox'
     Plug 'sheerun/vim-polyglot'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'preservim/nerdcommenter'
@@ -55,8 +54,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'thaerkh/vim-workspace'
     "Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     Plug 'akinsho/nvim-bufferline.lua'
-    Plug 'sainnhe/sonokai'
-    Plug 'morhetz/gruvbox'
+    Plug 'Aoutnheub/notgruvbox'
     Plug 'vim-airline/vim-airline'
 call plug#end()
 
@@ -82,6 +80,10 @@ nnoremap <C-b> :NvimTreeToggle<CR>
 set termguicolors
 let g:gruvbox_italic = 1
 colorscheme gruvbox
+"let g:sonokai_style = 'shusia'
+"let g:sonokai_enable_italic = 1
+"let g:sonokai_disable_italic_comment = 1
+"colorscheme sonokai
 
 " Statusline
 let g:airline_theme = 'gruvbox'
