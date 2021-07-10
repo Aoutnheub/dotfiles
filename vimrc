@@ -14,8 +14,6 @@ filetype plugin indent on
 "set smartcase		" Do smart case matching
 "set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
-set hidden		" Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -36,6 +34,9 @@ set sessionoptions-=blank
 set guicursor=
 set nobackup
 set nowritebackup
+set splitbelow splitright
+set hidden
+set mouse=a
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
@@ -53,7 +54,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
     Plug 'jiangmiao/auto-pairs'
     Plug 'thaerkh/vim-workspace'
-    Plug 'akinsho/nvim-bufferline.lua'
+    "Plug 'akinsho/nvim-bufferline.lua'
     Plug 'Aoutnheub/notgruvbox'
     Plug 'vim-airline/vim-airline'
     Plug 'mhinz/vim-startify'
@@ -87,7 +88,7 @@ endfunction
 let g:nvim_tree_width = 40
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_indent_markers = 1
-let g:nvim_tree_tab_open = 1
+"let g:nvim_tree_tab_open = 1
 nnoremap <C-b> :NvimTreeToggle<CR>
 
 " Colorscheme
@@ -104,6 +105,8 @@ let g:airline_theme = 'gruvbox'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.dirty='✗'
@@ -112,11 +115,14 @@ let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.colnr = ' Col:'
 
 " Tabline
-lua << EOF
-require("bufferline").setup{}
-EOF
-nnoremap <silent><C-]> :BufferLineMoveNext<CR>
-nnoremap <silent><C-[> :BufferLineMovePrev<CR>
+"lua << EOF
+"require("bufferline").setup{}
+"EOF
+"nnoremap <silent><C-]> :BufferLineMoveNext<CR>
+"nnoremap <silent><C-[> :BufferLineMovePrev<CR>
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ' '
 
 " use <c-space>for trigger completion
 inoremap <silent><expr> <NUL> coc#refresh()
@@ -155,6 +161,8 @@ let g:startify_bookmarks = [
             \ '~/Projects',
             \ '~/temp',
             \ '~/.config/nvim/init.vim',
+            \ '~/.config/kitty/kitty.conf',
+            \ '~/LeetCode'
             \ ]
 
 let g:startify_lists = [
@@ -162,3 +170,7 @@ let g:startify_lists = [
             \ { 'type': 'bookmarks', 'header': ['    Bookmarks'] },
             \ { 'type': 'dir', 'header': ['    Current Directory: '. getcwd()] },
             \ ]
+
+" Neovide/GUI
+let g:neovide_cursor_vfx_mode = "pixiedust"
+set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h10
