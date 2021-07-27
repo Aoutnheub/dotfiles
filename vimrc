@@ -57,7 +57,7 @@ call plug#begin('~/.config/nvim/plugged')
     "Plug 'akinsho/nvim-bufferline.lua'
     Plug 'Aoutnheub/notgruvbox'
     Plug 'vim-airline/vim-airline'
-    "Plug 'mhinz/vim-startify'
+    Plug 'mhinz/vim-startify'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
