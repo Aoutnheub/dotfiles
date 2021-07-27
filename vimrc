@@ -41,7 +41,7 @@ set mouse=a
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
     Plug 'ryanoasis/vim-devicons'
-    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'preservim/nerdtree'
     Plug 'tpope/vim-fugitive'
     Plug 'dylanaraps/wal.vim'
     Plug 'sheerun/vim-polyglot'
@@ -57,10 +57,12 @@ call plug#begin('~/.config/nvim/plugged')
     "Plug 'akinsho/nvim-bufferline.lua'
     Plug 'Aoutnheub/notgruvbox'
     Plug 'vim-airline/vim-airline'
-    Plug 'mhinz/vim-startify'
+    "Plug 'mhinz/vim-startify'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+
+map <silent> <C-h> :CloseHiddenBuffers<CR>
 
 let g:python_recommended_style = 0
 
@@ -84,21 +86,27 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Nvim Tree
-let g:nvim_tree_width = 40
-let g:nvim_tree_auto_close = 1
-let g:nvim_tree_indent_markers = 1
-"let g:nvim_tree_tab_open = 1
-nnoremap <C-b> :NvimTreeToggle<CR>
-
 " Colorscheme
 set termguicolors
 let g:gruvbox_italic = 1
 colorscheme gruvbox
-"let g:sonokai_style = 'shusia'
-"let g:sonokai_enable_italic = 1
-"let g:sonokai_disable_italic_comment = 1
-"colorscheme sonokai
+
+" NerdTree
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+let g:NERDTreeWinSize = 40
+let g:NERDTreeShowHidden = 1
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+" Start NERDTree, unless a session is specified
+autocmd VimEnter * if v:this_session == '' | NERDTree | wincmd p | endif
+map <expr> <C-b> exists('g:NERDTree') && g:NERDTree.IsOpen() ? ':NERDTreeToggle<CR>' : ':NERDTreeMirror<CR>:NERDTreeFocus<CR>'
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 " Statusline
 let g:airline_theme = 'gruvbox'
@@ -115,11 +123,6 @@ let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.colnr = ' Col:'
 
 " Tabline
-"lua << EOF
-"require("bufferline").setup{}
-"EOF
-"nnoremap <silent><C-]> :BufferLineMoveNext<CR>
-"nnoremap <silent><C-[> :BufferLineMovePrev<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ' '
@@ -147,6 +150,10 @@ autocmd InsertEnter * let CursorColumnI = col('.')
 autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
 
+" Workspace
+let g:workspace_autosave_untrailspaces = 0
+let g:workspace_autosave_untrailtabs = 0
+
 " Startify
 let g:startify_custom_header = [
             \ '    ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
@@ -170,7 +177,3 @@ let g:startify_lists = [
             \ { 'type': 'bookmarks', 'header': ['    Bookmarks'] },
             \ { 'type': 'dir', 'header': ['    Current Directory: '. getcwd()] },
             \ ]
-
-" Neovide/GUI
-let g:neovide_cursor_vfx_mode = "pixiedust"
-set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h10
