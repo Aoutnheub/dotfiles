@@ -40,8 +40,9 @@ set mouse=a
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
+    Plug 'kyazdani42/nvim-tree.lua'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'preservim/nerdtree'
+    "Plug 'preservim/nerdtree'
     Plug 'tpope/vim-fugitive'
     Plug 'dylanaraps/wal.vim'
     Plug 'sheerun/vim-polyglot'
@@ -58,6 +59,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'Aoutnheub/notgruvbox'
     Plug 'vim-airline/vim-airline'
     Plug 'mhinz/vim-startify'
+    Plug 'thaerkh/vim-indentguides'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
@@ -72,6 +74,11 @@ let g:workspace_autosave = 0
 let g:AutoPairsMultilineClose = 0
 
 let g:mkdp_auto_close = 1
+
+" Conceal
+let g:vim_json_syntax_conceal = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 " Coc
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
@@ -91,22 +98,29 @@ set termguicolors
 let g:gruvbox_italic = 1
 colorscheme gruvbox
 
+" Nvim Tree
+let g:nvim_tree_width = 40
+let g:nvim_tree_auto_close = 1
+let g:nvim_tree_indent_markers = 1
+"let g:nvim_tree_tab_open = 1
+nnoremap <C-b> :NvimTreeToggle<CR>
+
 " NerdTree
 " Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
-let g:NERDTreeWinSize = 40
-let g:NERDTreeShowHidden = 1
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
-" Start NERDTree, unless a session is specified
-autocmd VimEnter * if v:this_session == '' | NERDTree | wincmd p | endif
-map <expr> <C-b> exists('g:NERDTree') && g:NERDTree.IsOpen() ? ':NERDTreeToggle<CR>' : ':NERDTreeMirror<CR>:NERDTreeFocus<CR>'
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+" autocmd VimEnter * NERDTree | wincmd p
+" let g:NERDTreeWinSize = 40
+" let g:NERDTreeShowHidden = 1
+" let g:NERDSpaceDelims = 1
+" let g:NERDDefaultAlign = 'left'
+" " Start NERDTree, unless a session is specified
+" autocmd VimEnter * if v:this_session == '' | NERDTree | wincmd p | endif
+" map <expr> <C-b> exists('g:NERDTree') && g:NERDTree.IsOpen() ? ':NERDTreeToggle<CR>' : ':NERDTreeMirror<CR>:NERDTreeFocus<CR>'
+" " Exit Vim if NERDTree is the only window left.
+" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+"     \ quit | endif
+" " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+" autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+"     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 " Statusline
 let g:airline_theme = 'gruvbox'
