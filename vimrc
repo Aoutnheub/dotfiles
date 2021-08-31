@@ -146,6 +146,9 @@ inoremap <silent><expr> <NUL> coc#refresh()
 
 " NerdCommenter
 vmap \\ <plug>NERDCommenterToggle
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDCustomDelimiters = { 'c': { 'left': '//', 'right': '' } }
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort

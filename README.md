@@ -6,7 +6,7 @@
 - **Compositor**: Picom
 - **Bar**: Polybar
 - **Colorscheme**: Monokai Pro
-- **Browser**: Vivaldi
+- **Browser**: Brave
 
 # Screenshots
 ![Screenshots](screenshots/screenshot1.png)
