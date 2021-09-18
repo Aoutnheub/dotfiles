@@ -37,6 +37,7 @@ set nowritebackup
 set splitbelow splitright
 set hidden
 set mouse=a
+set colorcolumn=81
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
@@ -60,6 +61,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'mhinz/vim-startify'
     Plug 'thaerkh/vim-indentguides'
+    Plug 'Valloric/vim-operator-highlight'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
@@ -98,12 +100,65 @@ set termguicolors
 let g:gruvbox_italic = 1
 colorscheme gruvbox
 
+" Operator highlight
+let g:ophigh_color = 10
+let g:ophigh_color_gui = "#ff6188"
+
 " Nvim Tree
 let g:nvim_tree_width = 40
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_indent_markers = 1
 "let g:nvim_tree_tab_open = 1
 nnoremap <C-b> :NvimTreeToggle<CR>
+
+let g:nvim_tree_show_icons = {
+            \ 'git': 1,
+            \ 'folders': 1,
+            \ 'files': 1,
+            \ 'folder_arrows': 1,
+            \ }
+
+highlight NvimTreeSymlink guifg=#ffd866
+highlight NvimTreeFolderName guifg=#78dce8
+highlight NvimTreeRootFolder guifg=#ff6188
+highlight NvimTreeFolderIcon guifg=#78dce8
+highlight NvimTreeEmptyFolderName guifg=#78dce8
+highlight NvimTreeOpenedFolderName guifg=#78dce8
+highlight NvimTreeExecFile guifg=#a9dc76
+highlight NvimTreeOpenedFile guifg=#fcfcfa
+highlight NvimTreeSpecialFile guifg=#fcfcfa
+highlight NvimTreeImageFile guifg=#ab9df2
+highlight NvimTreeMarkdownFile guifg=#fcfcfa
+highlight NvimTreeIndentMarker guifg=#727072
+
+highlight LspDiagnosticsError guifg=#ff6188
+highlight LspDiagnosticsWarning guifg=#fc9867
+highlight LspDiagnosticsInformation guifg=#78dce8
+highlight LspDiagnosticsHint guifg=#ffd866
+
+highlight NvimTreeLicenseIcon guifg=#fcfcfa
+highlight NvimTreeYamlIcon guifg=#fcfcfa
+highlight NvimTreeTomlIcon guifg=#fcfcfa
+highlight NvimTreeGitignoreIcon guifg=#fcfcfa
+highlight NvimTreeJsonIcon guifg=#fcfcfa
+
+highlight NvimTreeLuaIcon guifg=#fcfcfa
+highlight NvimTreePythonIcon guifg=#fcfcfa
+highlight NvimTreeShellIcon guifg=#fcfcfa
+highlight NvimTreeJavascriptIcon guifg=#fcfcfa
+highlight NvimTreeCIcon guifg=#fcfcfa
+highlight NvimTreeReactIcon guifg=#fcfcfa
+highlight NvimTreeHtmlIcon guifg=#fcfcfa
+highlight NvimTreeRustIcon guifg=#fcfcfa
+highlight NvimTreeVimIcon guifg=#fcfcfa
+highlight NvimTreeTypescriptIcon guifg=#fcfcfa
+
+highlight NvimTreeGitDirty guifg=#fc9867
+highlight NvimTreeGitStaged guifg=#a9dc76
+highlight NvimTreeGitMerge guifg=#ab9df2
+highlight NvimTreeGitRenamed guifg=#ffd866
+highlight NvimTreeGitNew guifg=#78dce8
+highlight NvimTreeGitDeleted guifg=#ff6188
 
 " NerdTree
 " Start NERDTree and put the cursor back in the other window.
@@ -112,13 +167,13 @@ nnoremap <C-b> :NvimTreeToggle<CR>
 " let g:NERDTreeShowHidden = 1
 " let g:NERDSpaceDelims = 1
 " let g:NERDDefaultAlign = 'left'
-" " Start NERDTree, unless a session is specified
+" Start NERDTree, unless a session is specified
 " autocmd VimEnter * if v:this_session == '' | NERDTree | wincmd p | endif
 " map <expr> <C-b> exists('g:NERDTree') && g:NERDTree.IsOpen() ? ':NERDTreeToggle<CR>' : ':NERDTreeMirror<CR>:NERDTreeFocus<CR>'
-" " Exit Vim if NERDTree is the only window left.
+" Exit Vim if NERDTree is the only window left.
 " autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
 "     \ quit | endif
-" " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 " autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
 "     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
