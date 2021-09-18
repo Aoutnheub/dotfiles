@@ -41,8 +41,9 @@ set colorcolumn=81
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
+    Plug 'kyazdani42/nvim-web-devicons'
     Plug 'kyazdani42/nvim-tree.lua'
-    Plug 'ryanoasis/vim-devicons'
+    "Plug 'ryanoasis/vim-devicons'
     "Plug 'preservim/nerdtree'
     Plug 'tpope/vim-fugitive'
     Plug 'dylanaraps/wal.vim'
