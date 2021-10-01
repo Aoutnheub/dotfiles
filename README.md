@@ -5,8 +5,9 @@
 - **Shell**: Fish
 - **Compositor**: Picom
 - **Bar**: Polybar
-- **Colorscheme**: Monokai Pro
+- **Colorscheme**: Everforest
 - **Browser**: Brave
+- **Text Editor**: Neovim
 
 # Screenshots
 ![Screenshots](screenshots/screenshot1.png)
