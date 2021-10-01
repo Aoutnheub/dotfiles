@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    background-color: #2d2a2e;
+    background-color: #2b3339;
     margin: 0;
     padding: 0;
 }
@@ -32,7 +32,7 @@ body {
 #message {
     font-weight: bold;
     font-size: 8vh;
-    color: #fc9867;
+    color: #e69875;
     text-shadow: 0px 0px 10px #171717;
     font-family: "Comfortaa Regular";
     font-weight: bold;
@@ -41,12 +41,12 @@ body {
 }
 
 #user {
-    color: #ff6188;
+    color: #e67e80;
 }
 
 #date {
     font-size: 4vh;
-    color: #727072;
+    color: #4c555b;
     font-family: "Comfortaa Regular";
     text-align: center;
     margin: 0;
@@ -80,7 +80,7 @@ body {
     height: 100%;
     box-shadow: 5px 5px 5px #171717;
     border-radius: 100px;
-    background-color: #78dce8;
+    background-color: #7fbbb3;
     overflow: hidden;
 }
 
@@ -95,7 +95,7 @@ body {
     margin-left: 10%;
     box-shadow: 5px 5px 5px #171717;
     border-radius: 100px;
-    background-color: #79dce8;
+    background-color: #7fbbb3;
     overflow: hidden;
 }
 
@@ -108,26 +108,26 @@ body {
     width: 80%;
     height: 80%;
     margin: 10% 0 0 10%;
-    background-color: #78dce8;
+    background-color: #7fbbb3;
 }
 
 .widget-t:hover .widget-background-t {
     width: 60%;
     height: 60%;
     margin: 10% 0 0 20%;
-    background-color: #78dce8;
+    background-color: #7fbbb3;
 }
 
 .widget svg, .widget-t svg {
     height: 60%;
     width: 60%;
     margin: 20% 0 0 20%;
-    stroke: #fcfcfa;
-    color: #fcfcfa;
+    stroke: #d3c6aa;
+    color: #d3c6aa;
 }
 
 .widget-name {
-    color: #fcfcfa;
+    color: #d3c6aa;
     text-align: center;
     font-size: 3vh;
     font-family: "Comfortaa Regular";

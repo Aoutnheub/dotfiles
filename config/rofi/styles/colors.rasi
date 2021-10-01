@@ -2,14 +2,14 @@
 
 * {
   al:      #00000000;
-  bg:      #2d2a2eff;
-  se:      #a9dc76ff;
-  fg:      #fcfcfaff;
-  ac:      #78dce8ff;
-  red:     #ff6188ff;
-  green:   #a9dc76ff;
-  yellow:  #ffd866ff;
-  blue:    #78dce8ff;
-  purple:  #ab9df2ff;
-  cyan:    #fc9867ff;
+  bg:      #4c555bff;
+  se:      #a7c080ff;
+  fg:      #d3c6aaff;
+  ac:      #7fbbb3ff;
+  red:     #e67e80ff;
+  green:   #a7c080ff;
+  yellow:  #dbbc7fff;
+  blue:    #7fbbb3ff;
+  purple:  #d699b6ff;
+  cyan:    #e69875ff;
 }

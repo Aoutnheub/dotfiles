@@ -46,7 +46,7 @@ line-size = 3
 font-0 = Comfortaa:style=Bold:size=10;3
 font-1 = JetBrainsMono Nerd Font Mono:style=Regular:size=14;3
 font-2 = JetBrainsMono Nerd Font Mono:style=Regular:pixelsize=17;4
-font-3 = JetBrainsMono Nerd Font Mono:style=Regular:size=10;2
+font-3 = JetBrainsMono Nerd Font Mono:style=Regular:size=16;3
 font-4 = JetBrainsMono Nerd Font Mono:style=Regular:size=24;5
 modules-left = spacer power i3-spacer i3 i3-spacer
 modules-right = memory-icon memory spacer cpu-icon cpu spacer battery-icon battery spacer audio-icon pulseaudio spacer wifi-icon wlan spacer date-icon date spacer
