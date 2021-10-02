@@ -8,7 +8,7 @@ filetype plugin indent on
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
+    source /etc/vim/vimrc.local
 endif
 
 set tabstop=4
@@ -30,11 +30,10 @@ set hidden
 set mouse=a
 set colorcolumn=81
 
-" Plugins
+"" Plugins
 call plug#begin('~/.config/nvim/plugged')
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'kyazdani42/nvim-tree.lua'
-    "Plug 'ryanoasis/vim-devicons'
     "Plug 'preservim/nerdtree'
     Plug 'tpope/vim-fugitive'
     "Plug 'dylanaraps/wal.vim'
@@ -47,17 +46,15 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-eunuch'
     Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
     Plug 'jiangmiao/auto-pairs'
-    Plug 'thaerkh/vim-workspace'
-    "Plug 'akinsho/nvim-bufferline.lua'
     "Plug 'Aoutnheub/notgruvbox'
     Plug 'vim-airline/vim-airline'
     Plug 'mhinz/vim-startify'
-    "Plug 'thaerkh/vim-indentguides'
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'Valloric/vim-operator-highlight'
     Plug 'mg979/vim-visual-multi'
     Plug 'numtostr/FTerm.nvim'
     Plug 'sainnhe/everforest'
+    Plug 'rmagatti/auto-session'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
@@ -73,12 +70,12 @@ let g:AutoPairsMultilineClose = 0
 
 let g:mkdp_auto_close = 1
 
-" Conceal
+"" Conceal
 let g:vim_json_syntax_conceal = 0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 
-" Indent guides
+"" Indent guides
 lua <<EOF
 require("indent_blankline").setup {
     char = "┊",
@@ -86,31 +83,31 @@ require("indent_blankline").setup {
 }
 EOF
 
-" Coc
+"" Coc
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gh :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if &filetype == 'vim'
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
-" Colorscheme
+"" Colorscheme
 set termguicolors
 let g:everforest_enable_italic = 1
 let g:everforest_background = 'hard'
 let g:everforest_sign_column_background = 'none'
 colorscheme everforest
 
-" Operator highlight
+"" Operator highlight
 let g:ophigh_color = 10
 let g:ophigh_color_gui = "#e67e80"
 
-" Nvim Tree
+"" Nvim Tree
 let g:nvim_tree_width = 35
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_indent_markers = 1
@@ -124,10 +121,10 @@ let g:nvim_tree_show_icons = {
             \ 'folder_arrows': 1,
             \ }
 
-" Statusline
+"" Statusline
 let g:airline_theme = 'everforest'
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
@@ -138,7 +135,7 @@ let g:airline_symbols.linenr = ' Ln:'
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.colnr = ' Col:'
 
-" Tabline
+"" Tabline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = ' '
@@ -146,7 +143,7 @@ let g:airline#extensions#tabline#left_alt_sep = ' '
 " use <c-space>for trigger completion
 inoremap <silent><expr> <NUL> coc#refresh()
 
-" NerdCommenter
+"" NerdCommenter
 vmap \\ <plug>NERDCommenterToggle
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
@@ -169,15 +166,14 @@ autocmd InsertEnter * let CursorColumnI = col('.')
 autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
 
-" Workspace
-let g:workspace_autosave_untrailspaces = 0
-let g:workspace_autosave_untrailtabs = 0
+"" Workspace
+set sessionoptions+=options,resize,winpos,terminal
 
-" Terminal
+"" Terminal
 command! FTermToggle lua require("FTerm").toggle()<CR>
 nnoremap <C-t> :FTermToggle<CR>
 
-" Startify
+"" Startify
 let g:startify_custom_header = [
             \ '    ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
             \ '    ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
