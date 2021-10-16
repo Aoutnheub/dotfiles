@@ -1,0 +1,100 @@
+{
+    "editor.fontFamily": "'JetBrainsMono Nerd Font Mono'",
+    "editor.cursorStyle": "underline",
+    "editor.detectIndentation": false,
+    "workbench.colorTheme": "Everforest Dark",
+    "workbench.startupEditor": "none",
+    "editor.minimap.renderCharacters": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.fontLigatures": true,
+    "editor.occurrencesHighlight": false,
+    "editor.selectionHighlight": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "window.titleBarStyle": "custom",
+    "debug.console.fontSize": 11,
+    "terminal.integrated.fontSize": 11,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "diffEditor.wordWrap": "on",
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "none",
+    "html.format.wrapLineLength": 0,
+    "powermode.enabled": true,
+    "powermode.enableStatusBarComboCounter": false,
+    "powermode.enableStatusBarComboTimer": false,
+    "powermode.enableShake": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.matchBrackets": "never",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "window.title": "${dirty}${activeEditorMedium} ❤️️ ${rootName} ❤️️ VSCodium",
+    "python.linting.pylintArgs": [
+        "--generate-members"
+    ],
+    "security.workspace.trust.enabled": false,
+    "colorize.languages": [
+        "html",
+        "json",
+        "css",
+        "sass",
+        "scss",
+        "less",
+        "postcss",
+        "sss",
+        "stylus",
+        "xml",
+        "svg"
+    ],
+    "colorize.colorized_colors": [
+        "BROWSERS_COLORS",
+        "HEXA",
+        "RGB",
+        "HSL"
+    ],
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "julia.enableTelemetry": false,
+    "todohighlight.include": [
+        "**/*.h",
+        "**/*.c",
+        "**/*.cpp",
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.html",
+        "**/*.php",
+        "**/*.css",
+        "**/*.scss"
+    ],
+    "C_Cpp.default.intelliSenseMode": "linux-clang-x64",
+    "editor.suggest.showSnippets": false,
+    "redhat.telemetry.enabled": false,
+    "dart.allowAnalytics": false,
+    "dart.completeFunctionCalls": false,
+    "dart.devToolsBrowser": "default",
+    "[dart]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    },
+    "todohighlight.isEnable": false,
+    "dart.runPubGetOnPubspecChanges": false,
+    "dart.enableSnippets": false,
+    "editor.fontSize": 11,
+    "editor.lineHeight": 14,
+    "dart.automaticCommentSlashes": "none",
+    "dart.enableSdkFormatter": false,
+    "dart.flutterHotRestartOnSave": false,
+    "dart.flutterOutline": false,
+    "dart.insertArgumentPlaceholders": false,
+    "dart.lspSnippetTextEdits": false,
+    "editor.rulers": [
+        80
+    ],
+    "everforest.darkContrast": "hard",
+    "everforest.darkWorkbench": "high-contrast"
+}

@@ -55,11 +55,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'numtostr/FTerm.nvim'
     Plug 'sainnhe/everforest'
     Plug 'rmagatti/auto-session'
+    Plug 'arithran/vim-delete-hidden-buffers'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
-
-map <silent> <C-h> :CloseHiddenBuffers<CR>
 
 let g:python_recommended_style = 0
 
@@ -82,6 +81,9 @@ require("indent_blankline").setup {
     buftype_exclude = {"terminal"}
 }
 EOF
+
+"" Hidden buffers
+nnoremap <C-h> :DeleteHiddenBuffers<CR>
 
 "" Coc
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
@@ -111,7 +113,7 @@ let g:ophigh_color_gui = "#e67e80"
 let g:nvim_tree_width = 35
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_indent_markers = 1
-let g:nvim_tree_tab_open = 1
+let g:nvim_tree_quit_on_open = 1
 nnoremap <C-b> :NvimTreeToggle<CR>
 
 let g:nvim_tree_show_icons = {
