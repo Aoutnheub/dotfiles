@@ -1,0 +1,2 @@
+- Theme: [Adapta Nokto Eta](https://github.com/archcraft-os/packages/blob/main/x86_64/archcraft-gtk-theme-adapta-1.0-1-any.pkg.tar.zst)
+- Icons: [Zafiro Green](https://github.com/archcraft-os/packages/blob/main/x86_64/archcraft-icons-zafiro-1.0-1-any.pkg.tar.zst)
