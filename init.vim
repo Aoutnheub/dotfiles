@@ -169,7 +169,7 @@ autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
 
 "" Workspace
-set sessionoptions+=options,resize,winpos,terminal
+set sessionoptions+=options
 
 "" Terminal
 command! FTermToggle lua require("FTerm").toggle()<CR>
