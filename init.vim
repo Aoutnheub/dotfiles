@@ -32,11 +32,10 @@ set colorcolumn=81
 
 "" Plugins
 call plug#begin('~/.config/nvim/plugged')
-    Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'kyazdani42/nvim-tree.lua'
-    "Plug 'preservim/nerdtree'
+    Plug 'preservim/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'ryanoasis/vim-devicons'
     Plug 'tpope/vim-fugitive'
-    "Plug 'dylanaraps/wal.vim'
     Plug 'sheerun/vim-polyglot'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'preservim/nerdcommenter'
@@ -52,8 +51,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'Valloric/vim-operator-highlight'
     Plug 'mg979/vim-visual-multi'
     Plug 'numtostr/FTerm.nvim'
-    "Plug 'sainnhe/everforest'
-    "Plug 'rmagatti/auto-session'
     Plug 'thaerkh/vim-workspace'
     Plug 'arithran/vim-delete-hidden-buffers'
     Plug 'Aoutnheub/evermonokai'
@@ -112,19 +109,27 @@ colorscheme evermonokai
 let g:ophigh_color = 10
 let g:ophigh_color_gui = "#ff6188"
 
-"" Nvim Tree
-let g:nvim_tree_width = 35
-let g:nvim_tree_auto_close = 1
-let g:nvim_tree_indent_markers = 1
-let g:nvim_tree_quit_on_open = 1
-nnoremap <C-b> :NvimTreeToggle<CR>
+"" NerdTree
+let g:NERDTreeWinSize = 35
+let g:NERDTreeShowHidden = 1
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDTreeSortHiddenFirst = 1
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeMinimalUI = 1
 
-let g:nvim_tree_show_icons = {
-            \ 'git': 1,
-            \ 'folders': 1,
-            \ 'files': 1,
-            \ 'folder_arrows': 1,
-            \ }
+" Start NERDTree, unless a session is specified
+autocmd VimEnter * if v:this_session == '' | NERDTree | wincmd p | endif
+
+map <expr> <C-b> exists('g:NERDTree') && g:NERDTree.IsOpen() ? ':NERDTreeToggle<CR>' : ':NERDTreeMirror<CR>:NERDTreeFocus<CR>'
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 "" Statusline
 let g:airline_theme = 'evermonokai'
@@ -154,6 +159,7 @@ let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDCustomDelimiters = { 'c': { 'left': '//', 'right': '' } }
 
+"" Coc
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -165,7 +171,12 @@ inoremap <silent><expr> <Tab>
             \ <SID>check_back_space() ? "\<Tab>" :
             \ coc#refresh()
 
-" Don't move the cursor back when exiting INSERT
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" use <c-space>for trigger completion
+inoremap <silent><expr> <NUL> coc#refresh()
+
+"" Don't move the cursor back when exiting INSERT
 let CursorColumnI = 0
 autocmd InsertEnter * let CursorColumnI = col('.')
 autocmd CursorMovedI * let CursorColumnI = col('.')
