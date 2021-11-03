@@ -46,16 +46,17 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-eunuch'
     Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
     Plug 'jiangmiao/auto-pairs'
-    "Plug 'Aoutnheub/notgruvbox'
     Plug 'vim-airline/vim-airline'
     Plug 'mhinz/vim-startify'
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'Valloric/vim-operator-highlight'
     Plug 'mg979/vim-visual-multi'
     Plug 'numtostr/FTerm.nvim'
-    Plug 'sainnhe/everforest'
-    Plug 'rmagatti/auto-session'
+    "Plug 'sainnhe/everforest'
+    "Plug 'rmagatti/auto-session'
+    Plug 'thaerkh/vim-workspace'
     Plug 'arithran/vim-delete-hidden-buffers'
+    Plug 'Aoutnheub/evermonokai'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
@@ -100,14 +101,16 @@ endfunction
 
 "" Colorscheme
 set termguicolors
-let g:everforest_enable_italic = 1
-let g:everforest_background = 'hard'
-let g:everforest_sign_column_background = 'none'
-colorscheme everforest
+let g:evermonokai_enable_italic = 1
+let g:evermonokai_background = 'hard'
+let g:evermonokai_sign_column_background = 'none'
+let g:evermonokai_show_eob = 0
+let g:evermonokai_better_performance = 1
+colorscheme evermonokai
 
 "" Operator highlight
 let g:ophigh_color = 10
-let g:ophigh_color_gui = "#e67e80"
+let g:ophigh_color_gui = "#ff6188"
 
 "" Nvim Tree
 let g:nvim_tree_width = 35
@@ -124,7 +127,7 @@ let g:nvim_tree_show_icons = {
             \ }
 
 "" Statusline
-let g:airline_theme = 'everforest'
+let g:airline_theme = 'evermonokai'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
