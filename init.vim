@@ -2,8 +2,6 @@ if has("syntax")
   syntax on
 endif
 
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
 filetype plugin indent on
 
 " Source a global configuration file if available
@@ -35,6 +33,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'tpope/vim-fugitive'
     Plug 'sheerun/vim-polyglot'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -54,9 +53,13 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'thaerkh/vim-workspace'
     Plug 'arithran/vim-delete-hidden-buffers'
     Plug 'Aoutnheub/evermonokai'
+    Plug 'junegunn/rainbow_parentheses.vim'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+autocmd BufRead,BufNewFile *.clj setlocal tabstop=4 | setlocal shiftwidth=4
+
+let g:lisp_rainbow = 1
 
 let g:python_recommended_style = 0
 
@@ -66,6 +69,23 @@ let g:workspace_autosave = 0
 let g:AutoPairsMultilineClose = 0
 
 let g:mkdp_auto_close = 1
+
+""" Rainbow
+augroup rainbow_lisp
+    autocmd!
+    autocmd FileType lisp,clojure RainbowParentheses
+augroup END
+
+let g:rainbow#colors = {
+\   'dark': [
+\     ['1',  '#ff6188'     ],
+\     ['3',   '#fc9867'     ],
+\     ['6',    '#ffd866' ],
+\     ['2', '#a9dc76'      ],
+\     ['4',     '#78dce8'],
+\     ['5',  '#ab9df2'       ]
+\   ]
+\ }
 
 "" Conceal
 let g:vim_json_syntax_conceal = 0
@@ -117,6 +137,8 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 
 " Start NERDTree, unless a session is specified
 autocmd VimEnter * if v:this_session == '' | NERDTree | wincmd p | endif
