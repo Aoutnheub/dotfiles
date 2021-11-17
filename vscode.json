@@ -2,7 +2,7 @@
     "editor.fontFamily": "'JetBrainsMono Nerd Font Mono'",
     "editor.cursorStyle": "underline",
     "editor.detectIndentation": false,
-    "workbench.colorTheme": "Everforest Dark",
+    "workbench.colorTheme": "Monokai Pro",
     "workbench.startupEditor": "none",
     "editor.minimap.renderCharacters": false,
     "editor.acceptSuggestionOnEnter": "off",
@@ -26,7 +26,7 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.matchBrackets": "never",
+    "editor.matchBrackets": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
     "window.title": "${dirty}${activeEditorMedium} ❤️️ ${rootName} ❤️️ VSCodium",
     "python.linting.pylintArgs": [
@@ -96,5 +96,26 @@
         80
     ],
     "everforest.darkContrast": "hard",
-    "everforest.darkWorkbench": "high-contrast"
+    "everforest.darkWorkbench": "high-contrast",
+    "calva.highlight.bracketColors": [
+        "#ff6188",
+        "#fc9867",
+        "#ffd866",
+        "#a9dc76",
+        "#a9dc76",
+        "#ab9df2"
+    ],
+    "calva.paredit.defaultKeyMap": "strict",
+    "calva.prettyPrintingOptions": {
+        "enabled": true,
+        "width": 120,
+        "maxLength": 50,
+        "printEngine": "pprint"
+    },
+    "calva.enableJSCompletions": false,
+    "calva.showCalvaSaysOnStart": false,
+    "clojure.format.enable": false,
+    "calva.highlight.highlightActiveIndent": false,
+    "calva.paredit.hijackVSCodeDefaults": false,
+    "omnisharp.useGlobalMono":"always"
 }
