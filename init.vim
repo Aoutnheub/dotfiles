@@ -53,11 +53,13 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'thaerkh/vim-workspace'
     Plug 'arithran/vim-delete-hidden-buffers'
     Plug 'Aoutnheub/evermonokai'
-    Plug 'junegunn/rainbow_parentheses.vim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
 autocmd BufRead,BufNewFile *.clj setlocal tabstop=4 | setlocal shiftwidth=4
+autocmd BufNewFile,BufRead *.frag,*.vert set ft=text | set syntax=c
 
 let g:lisp_rainbow = 1
 
@@ -70,22 +72,14 @@ let g:AutoPairsMultilineClose = 0
 
 let g:mkdp_auto_close = 1
 
+let mapleader = " "
+let maplocalleader = ","
+
 """ Rainbow
 augroup rainbow_lisp
     autocmd!
     autocmd FileType lisp,clojure RainbowParentheses
 augroup END
-
-let g:rainbow#colors = {
-\   'dark': [
-\     ['1',  '#ff6188'     ],
-\     ['3',   '#fc9867'     ],
-\     ['6',    '#ffd866' ],
-\     ['2', '#a9dc76'      ],
-\     ['4',     '#78dce8'],
-\     ['5',  '#ab9df2'       ]
-\   ]
-\ }
 
 "" Conceal
 let g:vim_json_syntax_conceal = 0
@@ -99,6 +93,17 @@ require("indent_blankline").setup {
     buftype_exclude = {"terminal"}
 }
 EOF
+
+"" Telescope
+lua <<EOF
+require "telescope".setup {
+    defaults = {
+        preview = false
+    }
+}
+EOF
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
 
 "" Hidden buffers
 nnoremap <C-h> :DeleteHiddenBuffers<CR>
@@ -171,6 +176,9 @@ let g:airline_symbols.colnr = ' Col:'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = ' '
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#show_close_button = 1
+let g:airline#extensions#tabline#close_symbol = ''
 
 " use <c-space>for trigger completion
 inoremap <silent><expr> <NUL> coc#refresh()
