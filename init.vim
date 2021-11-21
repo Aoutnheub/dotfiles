@@ -27,13 +27,11 @@ set splitbelow splitright
 set hidden
 set mouse=a
 set colorcolumn=81
+set termguicolors
 
 "" Plugins
 call plug#begin('~/.config/nvim/plugged')
-    Plug 'preservim/nerdtree'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'kyazdani42/nvim-web-devicons'
     Plug 'tpope/vim-fugitive'
     Plug 'sheerun/vim-polyglot'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -49,7 +47,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'Valloric/vim-operator-highlight'
     Plug 'mg979/vim-visual-multi'
-    Plug 'numtostr/FTerm.nvim'
+    "Plug 'numtostr/FTerm.nvim'
     Plug 'thaerkh/vim-workspace'
     Plug 'arithran/vim-delete-hidden-buffers'
     Plug 'Aoutnheub/evermonokai'
@@ -122,7 +120,6 @@ function! s:show_documentation()
 endfunction
 
 "" Colorscheme
-set termguicolors
 let g:evermonokai_enable_italic = 1
 let g:evermonokai_background = 'hard'
 let g:evermonokai_sign_column_background = 'none'
@@ -134,54 +131,19 @@ colorscheme evermonokai
 let g:ophigh_color = 10
 let g:ophigh_color_gui = "#ff6188"
 
-"" NerdTree
-let g:NERDTreeWinSize = 35
-let g:NERDTreeShowHidden = 1
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDTreeSortHiddenFirst = 1
-let g:NERDTreeQuitOnOpen = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
-
-" Start NERDTree, unless a session is specified
-autocmd VimEnter * if v:this_session == '' | NERDTree | wincmd p | endif
-
-map <expr> <C-b> exists('g:NERDTree') && g:NERDTree.IsOpen() ? ':NERDTreeToggle<CR>' : ':NERDTreeMirror<CR>:NERDTreeFocus<CR>'
-
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
-
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
 "" Statusline
 let g:airline_theme = 'evermonokai'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = ''
+let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
 let g:airline_symbols.dirty='✗'
 let g:airline_symbols.linenr = ' Ln:'
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.colnr = ' Col:'
-
-"" Tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = ' '
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#show_close_button = 1
-let g:airline#extensions#tabline#close_symbol = ''
-
-" use <c-space>for trigger completion
-inoremap <silent><expr> <NUL> coc#refresh()
 
 "" NerdCommenter
 vmap \\ <plug>NERDCommenterToggle
@@ -190,6 +152,9 @@ let g:NERDCompactSexyComs = 1
 let g:NERDCustomDelimiters = { 'c': { 'left': '//', 'right': '' } }
 
 "" Coc
+" use <c-space> for trigger completion
+inoremap <silent><expr> <NUL> coc#refresh()
+
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -216,8 +181,8 @@ autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) 
 set sessionoptions+=options
 
 "" Terminal
-command! FTermToggle lua require("FTerm").toggle()<CR>
-nnoremap <C-t> :FTermToggle<CR>
+" command! FTermToggle lua require("FTerm").toggle()<CR>
+" nnoremap <C-t> :FTermToggle<CR>
 
 "" Startify
 let g:startify_custom_header = [

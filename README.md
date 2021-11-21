@@ -1,7 +1,7 @@
 # Details
 - **OS**: ArcoLinux
 - **WM**: i3
-- **Terminal**: Kitty
+- **Terminal**: Alacritty
 - **Shell**: Fish
 - **Compositor**: Picom
 - **Bar**: Polybar

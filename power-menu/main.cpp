@@ -105,6 +105,12 @@ int main(int argc, char *argv[]) {
     QObject::connect(&lock, &QPushButton::clicked, [&win]()->void{command = 5; win.close();});
     lock.show();
 
+    shutdown.setFocusPolicy(Qt::NoFocus);
+    reboot.setFocusPolicy(Qt::NoFocus);
+    hibernate.setFocusPolicy(Qt::NoFocus);
+    suspend.setFocusPolicy(Qt::NoFocus);
+    lock.setFocusPolicy(Qt::NoFocus);
+
     return powermenu.exec();
 }
 
