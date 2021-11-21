@@ -12,4 +12,3 @@
 # Screenshots [Outdated]
 ![Screenshots](screenshots/screenshot1.png)
 ![Screenshots](screenshots/screenshot2.png)
-![Screenshots](screenshots/screenshot3.png)
