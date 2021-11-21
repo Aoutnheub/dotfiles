@@ -8,6 +8,10 @@
 - **Colorscheme**: Monokai Pro
 - **Browser**: Brave
 - **Text Editor**: Neovim
+- **Fonts**:
+  - Cozette
+  - JetBrains Mono
+  - Comfortaa
 
 # Screenshots
 ![Screenshots](screenshots/screenshot1.png)
