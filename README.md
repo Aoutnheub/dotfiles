@@ -9,6 +9,6 @@
 - **Browser**: Brave
 - **Text Editor**: Neovim
 
-# Screenshots [Outdated]
+# Screenshots
 ![Screenshots](screenshots/screenshot1.png)
 ![Screenshots](screenshots/screenshot2.png)
