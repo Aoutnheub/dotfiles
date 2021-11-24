@@ -5,14 +5,13 @@
 - **Shell**: Fish
 - **Compositor**: Picom
 - **Bar**: Polybar
-- **Colorscheme**: Monokai Pro
+- **Colorscheme**: Nightfall
 - **Browser**: Brave
 - **Text Editor**: Neovim
 - **Fonts**:
   - Cozette
-  - JetBrains Mono
   - Comfortaa
 
-# Screenshots
+# Screenshots [Outdated]
 ![Screenshots](screenshots/screenshot1.png)
 ![Screenshots](screenshots/screenshot2.png)
