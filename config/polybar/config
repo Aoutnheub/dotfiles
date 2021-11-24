@@ -26,7 +26,7 @@ color4 = ${xrdb:color4:#222}
 color5 = ${xrdb:color5:#222}
 color6 = ${xrdb:color6:#222}
 color8 = ${xrdb:color8:#222}
-color9 = #5b595c
+color9 = #5b5248
 
 [bar/main]
 height = 24

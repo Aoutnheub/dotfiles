@@ -46,17 +46,16 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'mhinz/vim-startify'
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'Valloric/vim-operator-highlight'
-    Plug 'mg979/vim-visual-multi'
     "Plug 'numtostr/FTerm.nvim'
     Plug 'thaerkh/vim-workspace'
     Plug 'arithran/vim-delete-hidden-buffers'
     Plug 'Aoutnheub/evermonokai'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'Aoutnheub/nightfall.vim'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
-autocmd BufRead,BufNewFile *.clj setlocal tabstop=4 | setlocal shiftwidth=4
 autocmd BufNewFile,BufRead *.frag,*.vert set ft=text | set syntax=c
 
 let g:lisp_rainbow = 1
@@ -120,19 +119,14 @@ function! s:show_documentation()
 endfunction
 
 "" Colorscheme
-let g:evermonokai_enable_italic = 1
-let g:evermonokai_background = 'hard'
-let g:evermonokai_sign_column_background = 'none'
-let g:evermonokai_show_eob = 0
-let g:evermonokai_better_performance = 1
-colorscheme evermonokai
+colorscheme nightfall
 
 "" Operator highlight
 let g:ophigh_color = 10
-let g:ophigh_color_gui = "#ff6188"
+let g:ophigh_color_gui = "#e56750"
 
 "" Statusline
-let g:airline_theme = 'evermonokai'
+let g:airline_theme = 'nightfall'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif

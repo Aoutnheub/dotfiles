@@ -31,18 +31,18 @@ function fish_prompt
 #    limegreen="%F{green}"
 #fi
   set -l normal (set_color normal)
-  set -l white (set_color d3c6aa)
-  set -l turquoise (set_color dbbc7f)
-  set -l orange (set_color e69875)
-  set -l hotpink (set_color e67e80)
-  set -l blue (set_color 7fbbb3)
-  set -l limegreen (set_color a7c080)
-  set -l purple (set_color d699b6)
+  set -l white (set_color d4be98)
+  set -l turquoise (set_color 65af80)
+  set -l orange (set_color e28741)
+  set -l hotpink (set_color e56750)
+  set -l blue (set_color 7daea3)
+  set -l limegreen (set_color a6b251)
+  set -l purple (set_color d3869b)
 
   # Configure __fish_git_prompt
   set -g __fish_git_prompt_char_stateseparator ' '
   set -g __fish_git_prompt_color blue
-  set -g __fish_git_prompt_color_flags 7fbbb3
+  set -g __fish_git_prompt_color_flags 7daea3
   set -g __fish_git_prompt_color_prefix white
   set -g __fish_git_prompt_color_suffix white
   set -g __fish_git_prompt_showdirtystate true
@@ -58,7 +58,7 @@ function fish_prompt
   echo
 
   # Line 2
-  echo -n $white'⤷'
+  echo -n $white'└ '
   # support for virtual env name
   if set -q VIRTUAL_ENV
       echo -n "($turquoise"(basename "$VIRTUAL_ENV")"$white)"
