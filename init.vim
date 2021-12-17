@@ -46,13 +46,13 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'mhinz/vim-startify'
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'Valloric/vim-operator-highlight'
-    "Plug 'numtostr/FTerm.nvim'
     Plug 'thaerkh/vim-workspace'
     Plug 'arithran/vim-delete-hidden-buffers'
-    Plug 'Aoutnheub/evermonokai'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'Aoutnheub/nightfall.vim'
+    Plug 'matze/vim-move'
+    Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
@@ -71,12 +71,6 @@ let g:mkdp_auto_close = 1
 
 let mapleader = " "
 let maplocalleader = ","
-
-""" Rainbow
-augroup rainbow_lisp
-    autocmd!
-    autocmd FileType lisp,clojure RainbowParentheses
-augroup END
 
 "" Conceal
 let g:vim_json_syntax_conceal = 0
