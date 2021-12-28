@@ -1,5 +1,5 @@
 # Details
-- **OS**: ArcoLinux
+- **OS**: Arch Linux
 - **WM**: i3
 - **Terminal**: Alacritty
 - **Shell**: Fish
@@ -11,6 +11,7 @@
 - **Fonts**:
   - Cozette
   - Comfortaa
+  - JetBrains Mono
 
 # Screenshots
 ![Screenshots](screenshots/screenshot1.png)
