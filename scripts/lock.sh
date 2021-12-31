@@ -3,7 +3,7 @@
 # create a temp file
 img=$(mktemp /tmp/XXXXXXXXXXXXX.png)
 # Take a screenshot of current desktop
-import -window root $img 
+import -silent -window root $img 
 # Pixelate the screenshot
 convert $img -scale 10% -scale 1000% $img
 # Alternatively, blur the screenshot (slow!)

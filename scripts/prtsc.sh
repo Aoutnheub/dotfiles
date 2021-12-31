@@ -1,3 +1,3 @@
-SCREENSHOT=$HOME/Pictures/screenshots/$(date -Iseconds | tr : _ | tr + -).png
+SCREENSHOT=$HOME/Screenshots/$(date -Iseconds | tr : _ | tr + -).png
 touch $SCREENSHOT
-import -window root $SCREENSHOT
+import -silent -window root $SCREENSHOT

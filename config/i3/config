@@ -72,6 +72,10 @@ client.background $color0
 # pywal
 exec --no-startup-id wal -R
 
+# keyboard
+exec --no-startup-id setxkbmap -layout 'us,ro(std)'
+exec --no=startup-id setxkbmap -option 'grp:alt_shift_toggle'
+
 # i3-gaps
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 0
@@ -100,7 +104,8 @@ exec --no-startup-id xinput --set-prop "pointer:USB Gaming Mouse" "libinput Acce
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+t exec i3-sensible-terminal
+bindsym $mod+t exec alacritty
+bindsym $mod+Shift+t exec yakuake
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -121,10 +126,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Shift+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Shift+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -236,12 +241,15 @@ mode "DISPLAY" {
 bindsym $mod+Shift+d mode "DISPLAY"
 
 # print screen
-bindcode 96 exec --no-startup-id prtsc.sh
+bindsym $mod+s exec --no-startup-id prtsc.sh
 
 # browser
-bindsym $mod+b exec --no-startup-id vivaldi-stable
+bindsym $mod+b exec --no-startup-id brave
 
 # lock
 bindsym $mod+l exec --no-startup-id lock.sh
+
+# vscodium
+bindsym $mod+v exec --no-startup-id vscodium
 
 exec --no-startup-id xss-lock -l lock.sh
