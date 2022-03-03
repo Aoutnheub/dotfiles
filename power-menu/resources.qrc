@@ -1,9 +1,0 @@
-<!DOCTYPE RCC><RCC version="1.0">
-    <qresource prefix="/icon">
-        <file alias="lock">icons/lock.svg</file>
-        <file alias="sleep">icons/moon.svg</file>
-        <file alias="shutdown">icons/power.svg</file>
-        <file alias="reboot">icons/refresh.svg</file>
-        <file alias="hibernate">icons/snowflake.svg</file>
-    </qresource>
-</RCC>
