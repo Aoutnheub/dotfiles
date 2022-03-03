@@ -31,10 +31,13 @@ set termguicolors
 
 "" Plugins
 call plug#begin('~/.config/nvim/plugged')
+    " Plug 'ryanoasis/vim-devicons'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'tpope/vim-fugitive'
     Plug 'sheerun/vim-polyglot'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    " Plug 'preservim/nerdtree'
+    " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'preservim/nerdcommenter'
     Plug 'ap/vim-css-color'
     Plug 'ntpeters/vim-better-whitespace'
@@ -53,6 +56,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'Aoutnheub/nightfall.vim'
     Plug 'matze/vim-move'
     Plug 'dhruvasagar/vim-table-mode'
+    Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
@@ -78,10 +82,11 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 
 "" Indent guides
-lua <<EOF
+lua << EOF
 require("indent_blankline").setup {
     char = "┊",
-    buftype_exclude = {"terminal"}
+    buftype_exclude = {"terminal"},
+    filetype_exclude = {"nerdtree"}
 }
 EOF
 
@@ -124,8 +129,8 @@ let g:airline_theme = 'nightfall'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.dirty='✗'
@@ -171,6 +176,22 @@ set sessionoptions+=options
 "" Terminal
 " command! FTermToggle lua require("FTerm").toggle()<CR>
 " nnoremap <C-t> :FTermToggle<CR>
+
+"" Nvim Tree
+let g:nvim_tree_indent_markers = 1
+
+lua << EOF
+require'nvim-tree'.setup {
+    auto_close = true,
+    hijack_cursor = true,
+    view = {
+        width = 35,
+        height = 35,
+    }
+}
+EOF
+
+nnoremap <C-b> :NvimTreeToggle<CR>
 
 "" Startify
 let g:startify_custom_header = [
