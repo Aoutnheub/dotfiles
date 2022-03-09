@@ -5,3 +5,12 @@ xinput set-prop "HUION PenTablet stylus" --type=float "libinput Tablet Tool Pres
 stylus=$(xsetwacom list dev | sed -r "s/([^\s])\s+/\1 /g" | cut -d " " -f 6 | tail -1)
 xsetwacom set $stylus Button 2 3
 xsetwacom set $stylus Button 3 2
+pad=$(xsetwacom list dev | sed -r "s/([^\s])\s+/\1 /g" | cut -d " " -f 6 | head -1)
+xsetwacom set $pad Button 1 "key +ctrl z -ctrl"
+xsetwacom set $pad Button 2 "key +shift +ctrl e -ctrl -shift"
+xsetwacom set $pad Button 3 "key +shift +ctrl p -ctrl -shift"
+xsetwacom set $pad Button 8 "key +ctrl +shift equal -shift -ctrl"
+xsetwacom set $pad Button 9 "key +ctrl minus -ctrl"
+xsetwacom set $pad Button 10 "key a"
+xsetwacom set $pad Button 11 "key b"
+xsetwacom set $pad Button 12 "key c"
