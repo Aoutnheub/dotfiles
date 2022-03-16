@@ -36,8 +36,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'sheerun/vim-polyglot'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    " Plug 'preservim/nerdtree'
-    " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'preservim/nerdcommenter'
     Plug 'ap/vim-css-color'
     Plug 'ntpeters/vim-better-whitespace'
@@ -62,8 +60,6 @@ call plug#end()
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
 autocmd BufNewFile,BufRead *.frag,*.vert set ft=text | set syntax=c
 
-let g:lisp_rainbow = 1
-
 let g:python_recommended_style = 0
 
 let g:workspace_session_disable_on_args = 1
@@ -84,7 +80,7 @@ let g:vim_markdown_conceal_code_blocks = 0
 "" Indent guides
 lua << EOF
 require("indent_blankline").setup {
-    char = "┊",
+    char = "│",
     buftype_exclude = {"terminal"},
     filetype_exclude = {"nerdtree"}
 }
@@ -129,8 +125,8 @@ let g:airline_theme = 'nightfall'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
+let g:airline_left_sep = '▙▚▚'
+let g:airline_right_sep = '▞▞▟'
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.dirty='✗'
