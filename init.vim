@@ -26,8 +26,9 @@ set nowritebackup
 set splitbelow splitright
 set hidden
 set mouse=a
-set colorcolumn=81
+" set colorcolumn=81
 set termguicolors
+set fillchars=stlnc:-
 
 "" Plugins
 call plug#begin('~/.config/nvim/plugged')
@@ -55,10 +56,12 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'matze/vim-move'
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'akinsho/toggleterm.nvim'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
 autocmd BufNewFile,BufRead *.frag,*.vert set ft=text | set syntax=c
+autocmd BufNewFile,BufRead *.cshtml set ft=html
 
 let g:python_recommended_style = 0
 
@@ -68,6 +71,11 @@ let g:workspace_autosave = 0
 let g:AutoPairsMultilineClose = 0
 
 let g:mkdp_auto_close = 1
+
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_extra_types = 1
 
 let mapleader = " "
 let maplocalleader = ","
@@ -88,9 +96,15 @@ EOF
 
 "" Telescope
 lua <<EOF
+local actions = require("telescope.actions")
 require "telescope".setup {
     defaults = {
-        preview = false
+        preview = false,
+        mappings = {
+            i = {
+                ["<esc>"] = actions.close
+            }
+        }
     }
 }
 EOF
@@ -170,8 +184,16 @@ autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) 
 set sessionoptions+=options
 
 "" Terminal
-" command! FTermToggle lua require("FTerm").toggle()<CR>
-" nnoremap <C-t> :FTermToggle<CR>
+lua << EOF
+require("toggleterm").setup{
+  -- size can be a number or function which is passed the current terminal
+  size = 20,
+  direction = 'horizontal',
+  shading_factor = '3'
+}
+EOF
+nnoremap <silent> <C-t> :ToggleTerm<CR>
+tnoremap <silent> <C-t> <C-\><C-N>:ToggleTerm<CR>
 
 "" Nvim Tree
 let g:nvim_tree_indent_markers = 1
@@ -180,6 +202,7 @@ lua << EOF
 require'nvim-tree'.setup {
     auto_close = true,
     hijack_cursor = true,
+    update_cwd = false,
     view = {
         width = 35,
         height = 35,
