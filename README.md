@@ -1,6 +1,6 @@
 # Details
 - **OS**: Arch Linux
-- **WM**: i3
+- **WM**: bspwm
 - **Terminal**: Alacritty
 - **Shell**: Fish
 - **Compositor**: Picom

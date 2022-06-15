@@ -1,0 +1,49 @@
+#!/bin/sh
+
+sxhkd &
+
+bspc config split_ratio          0.5
+
+# Fix cursor
+xsetroot -cursor_name left_ptr
+
+bspc config merge_overlapping_monitors true
+
+picom &
+
+change-background.sh &
+
+# modprobe v4l2loopback devices=1 max_buffers=2 exclusive_caps=1 card_label="VirtualCam"
+
+# Colors
+# COLOR_FG=xrdb -query | grep foreground: | tail -1 | awk '{print $NF}'
+# COLOR_BG=xrdb -query | grep background: | tail -1 | awk '{print $NF}'
+# COLOR_BLACK=xrdb -query | grep color0: | tail -1 | awk '{print $NF}'
+# COLOR_RED=xrdb -query | grep color1: | tail -1 | awk '{print $NF}'
+# COLOR_GREEN=xrdb -query | grep color2: | tail -1 | awk '{print $NF}'
+# COLOR_YELLOW=xrdb -query | grep color3: | tail -1 | awk '{print $NF}'
+# COLOR_BLUE=xrdb -query | grep color4: | tail -1 | awk '{print $NF}'
+# COLOR_MAGENTA=xrdb -query | grep color5: | tail -1 | awk '{print $NF}'
+# COLOR_CYAN=xrdb -query | grep color6: | tail -1 | awk '{print $NF}'
+# COLOR_WHITE=xrdb -query | grep color7: | tail -1 | awk '{print $NF}'
+
+# Keyboard
+setxkbmap -layout 'us,ro(std)' &
+setxkbmap -option 'grp:alt_shift_toggle' &
+
+bspc config border_width 0
+bspc config window_gap 12
+
+# Touchpad and mouse
+xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1 &
+xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Drag Enabled" 0 &
+xinput --set-prop "pointer:USB Gaming Mouse" "libinput Accel Speed" -0.5 &
+
+polybar main &
+
+# Focus window under cursor
+bspc config focus_follows_pointer true
+
+# Rules
+bspc rule -a feh floating=on center=on
+bspc rule -a Qemu-system-x86_64 floating=on center=on
