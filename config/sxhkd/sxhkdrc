@@ -26,10 +26,10 @@ super + { Left, Right, Up, Down }
     bspc node -s { west, east, north, south } --follow
 
 # Switch / send to workspace
-super + {1-9}
-    bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}
-super + shift + {1-9}
-    bspc node -d {I,II,III,IV,V,VI,VII,VIII,IX,X}
+super + {0-9}
+    bspc desktop -f {X,I,II,III,IV,V,VI,VII,VIII,IX}
+super + shift + {0-9}
+    bspc node -d {X,I,II,III,IV,V,VI,VII,VIII,IX}
 
 # Monitor
 super + shift + m
