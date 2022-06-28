@@ -3,7 +3,7 @@ follow = mouse
 width = 300
 height = 100
 offset = 18x18
-separator_height = 0
+separator_height = 1
 frame_color = "#756a5d"
 sort = yes
 idle_threshold = 120
@@ -11,7 +11,7 @@ font = Comfortaa 10
 markup = full
 alignment = center
 vertical_alignment = center
-frame_width = 1
+frame_width = 0
 
 [urgency_low]
 background = "#1d2021"
