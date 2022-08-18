@@ -45,5 +45,5 @@ polybar main &
 bspc config focus_follows_pointer true
 
 # Rules
-bspc rule -a feh floating=on center=on
-bspc rule -a Qemu-system-x86_64 floating=on center=on
+bspc rule -a feh state=floating center=on
+bspc rule -a Qemu-system-x86_64 state=floating center=on
