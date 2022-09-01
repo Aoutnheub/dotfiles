@@ -89,12 +89,16 @@ let maplocalleader = ","
 set rtp+=/home/aoutnheub/.opam/default/share/merlin/vim
 
 " delete without yanking
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
+nnoremap d "_d
+vnoremap d "_d
 
 " replace currently selected text with default register
 " without yanking it
-vnoremap <leader>p "_dP
+vnoremap p "_dP
+
+" delete with yanking
+nnoremap dy d
+vnoremap dy d
 
 "" Metals
 " lua << EOF
