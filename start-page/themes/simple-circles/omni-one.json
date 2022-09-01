@@ -1,0 +1,11 @@
+{
+    "background": "#1b1b1b",
+    "text_shadow": "#171717",
+    "welcome_message": "#98c379",
+    "user": "#56b6c2",
+    "date": "#e06c75",
+    "icon_shadow": "#171717",
+    "circle_background": "#757575",
+    "icon": "#eeffff",
+    "widget_name": "#eeffff"
+}
