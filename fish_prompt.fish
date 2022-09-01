@@ -31,18 +31,18 @@ function fish_prompt
 #    limegreen="%F{green}"
 #fi
   set -l normal (set_color normal)
-  set -l white (set_color d4be98)
-  set -l turquoise (set_color 65af80)
-  set -l orange (set_color e28741)
-  set -l hotpink (set_color e56750)
-  set -l blue (set_color 7daea3)
-  set -l limegreen (set_color a6b251)
-  set -l purple (set_color d3869b)
+  set -l white (set_color eeffff)
+  set -l turquoise (set_color 61afef)
+  set -l orange (set_color d19a66)
+  set -l hotpink (set_color e06c75)
+  set -l blue (set_color 56b6c2)
+  set -l limegreen (set_color 98c379)
+  set -l purple (set_color c678dd)
 
   # Configure __fish_git_prompt
   set -g __fish_git_prompt_char_stateseparator ' '
   set -g __fish_git_prompt_color blue
-  set -g __fish_git_prompt_color_flags 7daea3
+  set -g __fish_git_prompt_color_flags 56b6c2
   set -g __fish_git_prompt_color_prefix white
   set -g __fish_git_prompt_color_suffix white
   set -g __fish_git_prompt_showdirtystate true

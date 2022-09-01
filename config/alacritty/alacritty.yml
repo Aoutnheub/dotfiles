@@ -2,33 +2,33 @@
 colors:
     # Default colors
     primary:
-        background: '#2D2A2E'
-        foreground: '#FCFCFA'
+        background: '#1b1b1b'
+        foreground: '#eeffff'
 
     # Normal colors
     normal:
-        black:   '#403E41'
-        red:     '#FF6188'
-        green:   '#A9DC76'
-        yellow:  '#FFD866'
-        blue:    '#78DCE8'
-        magenta: '#AB9DF2'
-        cyan:    '#FC9867'
-        white:   '#FCFCFA'
+        black:   '#424242'
+        red:     '#e06c75'
+        green:   '#98c379'
+        yellow:  '#e5c07b'
+        blue:    '#56b6c2'
+        magenta: '#c678dd'
+        cyan:    '#61afef'
+        white:   '#eeffff'
 
     # Bright colors
     bright:
-        black:   '#727072'
-        red:     '#FF6188'
-        green:   '#A9DC76'
-        yellow:  '#FFD866'
-        blue:    '#78DCE8'
-        magenta: '#AB9DF2'
-        cyan:    '#FC9867'
-        white:   '#FCFCFA'
+        black:   '#424242'
+        red:     '#e06c75'
+        green:   '#98c379'
+        yellow:  '#e5c07b'
+        blue:    '#56b6c2'
+        magenta: '#c678dd'
+        cyan:    '#61afef'
+        white:   '#eeffff'
     cursor:
         text: CellBackground
-        cursor: '#FF6188'
+        cursor: '#e5c07b'
 
 
 window:
@@ -41,19 +41,19 @@ scrolling:
 
 font:
     normal:
-        family: CozetteVector
+        family: FiraCode Nerd Font Mono
         style: Regular
     bold:
-        family: CozetteVector
-        style: Regular
+        family: FiraCode Nerd Font Mono
+        style: Bold
     italic:
-        family: CozetteVector
-        style: Regular
+        family: FiraCode Nerd Font Mono
+        style: Italic
     bold_italic:
-        family: CozetteVector
-        style: Regular
+        family: FiraCode Nerd Font Mono
+        style: SemiBold
 
-    size: 9
+    size: 8
 
 cursor:
     style:
