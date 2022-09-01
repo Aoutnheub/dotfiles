@@ -134,12 +134,12 @@ EOF
 
 " let g:rainbow#colors = {
 " \   'dark': [
-" \     ['1', '#e56750'],
-" \     ['3', '#e28741'],
-" \     ['6', '#d4a248'],
-" \     ['2', '#a6b251'],
-" \     ['4', '#7daea3'],
-" \     ['5', '#d3869b']
+" \     ['1', '#e06c75'],
+" \     ['3', '#d19a66'],
+" \     ['6', '#e5c07b'],
+" \     ['2', '#98c379'],
+" \     ['4', '#56b6c2'],
+" \     ['5', '#c678dd']
 " \   ]
 " \ }
 
@@ -168,7 +168,7 @@ colorscheme omni_one
 
 "" Operator highlight
 let g:ophigh_color = 10
-let g:ophigh_color_gui = "#e56750"
+let g:ophigh_color_gui = "#e06c75"
 
 "" Statusline
 let g:airline_theme = 'omni_one'
