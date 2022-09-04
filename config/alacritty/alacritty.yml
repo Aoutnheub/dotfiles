@@ -59,7 +59,7 @@ cursor:
     style:
         shape: Underline
         blinking: On
-    thickness: 0.4
+    thickness: 0.3
     blink_interval: 600
 
 key_bindings:
