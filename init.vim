@@ -67,7 +67,7 @@ call plug#end()
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
 autocmd BufNewFile,BufRead *.frag,*.vert set ft=text | set syntax=c
 autocmd BufNewFile,BufRead *.cshtml set ft=html
-autocmd BufNewFile,BufRead *.clj setlocal tabstop=4 | setlocal shiftwidth=4
+autocmd BufNewFile,BufRead *.clj,*.ex,*.exs setlocal tabstop=4 | setlocal shiftwidth=4
 
 let g:python_recommended_style = 0
 
@@ -175,8 +175,8 @@ let g:airline_theme = 'omni_one'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = '▙▚▚'
-let g:airline_right_sep = '▞▞▟'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.dirty='✗'
