@@ -60,12 +60,14 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'akinsho/toggleterm.nvim'
     Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
     Plug 'ollykel/v-vim'
+    Plug 'rmagatti/auto-session'
     " Plug 'junegunn/rainbow_parentheses.vim'
     " Plug 'scalameta/nvim-metals'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
 autocmd BufNewFile,BufRead *.frag,*.vert set ft=text | set syntax=c
+autocmd BufNewFile,BufRead *.fs set ft=fsharp | set syntax=fsharp
 autocmd BufNewFile,BufRead *.cshtml set ft=html
 autocmd BufNewFile,BufRead *.clj,*.ex,*.exs setlocal tabstop=4 | setlocal shiftwidth=4
 
@@ -96,9 +98,9 @@ vnoremap d "_d
 " without yanking it
 vnoremap p "_dP
 
-" delete with yanking
-nnoremap dy d
-vnoremap dy d
+" cut
+nnoremap xx dd
+vnoremap x d
 
 "" Metals
 " lua << EOF
@@ -122,7 +124,7 @@ lua << EOF
 require("indent_blankline").setup {
     char = "│",
     buftype_exclude = {"terminal"},
-    filetype_exclude = {"nerdtree", "startify"}
+    filetype_exclude = {"NvimTree", "startify"}
 }
 EOF
 
@@ -187,8 +189,10 @@ let g:airline_symbols.colnr = ' Col:'
 "" Bufferline
 lua << EOF
 require("bufferline").setup{
-options = {
-        offsets = {{filetype = "NvimTree", text = "File Explorer" , text_align = "left"}}
+    options = {
+        offsets = {{filetype = "NvimTree", text = "File Explorer" , text_align = "left"}},
+        diagnostics = "coc",
+        show_close_icon = false
     }
 }
 EOF
@@ -209,8 +213,10 @@ let g:NERDCustomDelimiters = {
 "" Coc
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gh :call <SID>ShowDocumentation()<CR>
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gh :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
     if CocAction('hasProvider', 'hover')
