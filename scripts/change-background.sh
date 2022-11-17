@@ -1,2 +1,2 @@
-WALLPAPER=$HOME/Pictures/wallpapers/$(cat $HOME/Pictures/wallpapers/wallpaper.txt)
+WALLPAPER=$HOME/Wallpapers/$(cat $HOME/Wallpapers/wallpaper.txt)
 feh --bg-fill $WALLPAPER
