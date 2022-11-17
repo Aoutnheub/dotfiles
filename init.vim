@@ -32,7 +32,6 @@ set fillchars=stlnc:-
 
 "" Plugins
 call plug#begin('~/.config/nvim/plugged')
-    " Plug 'ryanoasis/vim-devicons'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'tpope/vim-fugitive'
     Plug 'sheerun/vim-polyglot'
@@ -59,10 +58,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'akinsho/toggleterm.nvim'
     Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
-    Plug 'ollykel/v-vim'
+    Plug 'tamton-aquib/staline.nvim'
     Plug 'rmagatti/auto-session'
     " Plug 'junegunn/rainbow_parentheses.vim'
-    " Plug 'scalameta/nvim-metals'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
@@ -88,8 +86,6 @@ let g:go_highlight_extra_types = 1
 let mapleader = " "
 let maplocalleader = ","
 
-set rtp+=/home/aoutnheub/.opam/default/share/merlin/vim
-
 " delete without yanking
 nnoremap d "_d
 vnoremap d "_d
@@ -101,18 +97,6 @@ vnoremap p "_dP
 " cut
 nnoremap xx dd
 vnoremap x d
-
-"" Metals
-" lua << EOF
-" local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
-" vim.api.nvim_create_autocmd("FileType", {
-    " pattern = { "scala", "sbt" },
-    " callback = function()
-        " require("metals").initialize_or_attach({})
-    " end,
-    " group = nvim_metals_group,
-" })
-" EOF
 
 "" Conceal
 let g:vim_json_syntax_conceal = 0
@@ -177,8 +161,8 @@ let g:airline_theme = 'omni_one'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.dirty='✗'
@@ -261,7 +245,6 @@ set sessionoptions+=options
 "" Terminal
 lua << EOF
 require("toggleterm").setup{
-  -- size can be a number or function which is passed the current terminal
   size = 20,
   direction = 'horizontal',
   shading_factor = '3'
@@ -293,6 +276,15 @@ require'nvim-tree'.setup {
 EOF
 
 nnoremap <C-b> :NvimTreeToggle<CR>
+
+"" treesitter
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+    indent = {
+        disable = 'dart'
+    }
+}
+EOF
 
 "" Startify
 let g:startify_custom_header = [

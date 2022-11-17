@@ -8,7 +8,7 @@
 
 - **OS**: [Arch Linux](https://archlinux.org/)
 - **WM**: [bspwm](https://github.com/baskerville/bspwm)
-- **Terminal**: [Alacritty](https://alacritty.org/)
+- **Terminal**: [Kitty](https://sw.kovidgoyal.net/kitty/)
 - **Shell**: [Fish](https://fishshell.com/)
 - **Compositor**: [Picom](https://github.com/jonaburg/picom)
 - **Bar**: [Polybar](https://polybar.github.io/)
