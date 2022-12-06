@@ -1,0 +1,32 @@
+{
+    "suggest.noselect": true,
+    "suggest.enablePreselect": false,
+    "coc.preferences.formatOnSave": false,
+    "coc.preferences.formatOnType": false,
+    "clangd.arguments": [
+        "--header-insertion=never"
+    ],
+    "inlayHint.enable": false,
+    "git.changedSign.text": "┃",
+    "git.addedSign.text": "┃",
+    "git.removedSign.text": "┃",
+    "git.topRemovedSign.text": "┃",
+    "git.changeRemovedSign.text": "┃",
+    "xml.format.enabled": false,
+    "dart.enableSdkFormatter": false,
+    "languageserver":{
+        "zls": {
+            "command": "zls",
+            "filetypes": ["zig"],
+        },
+        "odin": {
+            "command": "/usr/local/ols/ols",
+            "filetypes": ["odin"],
+            "rootPatterns": ["ols.json"]
+        }
+    },
+    "html.validate.scripts": false,
+    "diagnostic.infoSign": "",
+    "diagnostic.errorSign": "",
+    "diagnostic.warningSign": ""
+}
