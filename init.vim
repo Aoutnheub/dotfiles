@@ -43,15 +43,13 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-eunuch'
     Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
     Plug 'jiangmiao/auto-pairs'
-    Plug 'vim-airline/vim-airline'
     Plug 'mhinz/vim-startify'
     Plug 'lukas-reineke/indent-blankline.nvim'
-    Plug 'Valloric/vim-operator-highlight'
+    "Plug 'Valloric/vim-operator-highlight'
     Plug 'thaerkh/vim-workspace'
     Plug 'arithran/vim-delete-hidden-buffers'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    "Plug 'Aoutnheub/nightfall.vim'
     Plug 'Aoutnheub/omni-one.vim'
     Plug 'matze/vim-move'
     Plug 'dhruvasagar/vim-table-mode'
@@ -60,7 +58,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
     Plug 'tamton-aquib/staline.nvim'
     Plug 'rmagatti/auto-session'
-    " Plug 'junegunn/rainbow_parentheses.vim'
+    "Plug 'junegunn/rainbow_parentheses.vim'
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
@@ -70,18 +68,15 @@ autocmd BufNewFile,BufRead *.cshtml set ft=html
 autocmd BufNewFile,BufRead *.clj,*.ex,*.exs setlocal tabstop=4 | setlocal shiftwidth=4
 
 let g:python_recommended_style = 0
-
 let g:workspace_session_disable_on_args = 1
 let g:workspace_autosave = 0
-
 let g:AutoPairsMultilineClose = 0
-
 let g:mkdp_auto_close = 1
-
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_types = 1
 let g:go_highlight_extra_types = 1
+let g:zig_fmt_autosave = 0
 
 let mapleader = " "
 let maplocalleader = ","
@@ -112,7 +107,7 @@ require("indent_blankline").setup {
 }
 EOF
 
-""" Rainbow
+"" Rainbow
 " augroup rainbow_lisp
     " autocmd!
     " autocmd FileType lisp,clojure RainbowParentheses
@@ -130,7 +125,7 @@ EOF
 " \ }
 
 "" Telescope
-lua <<EOF
+lua << EOF
 local actions = require("telescope.actions")
 require "telescope".setup {
     defaults = {
@@ -157,26 +152,96 @@ let g:ophigh_color = 10
 let g:ophigh_color_gui = "#e06c75"
 
 "" Statusline
-let g:airline_theme = 'omni_one'
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.dirty='✗'
-let g:airline_symbols.linenr = ' Ln:'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.colnr = ' Col:'
+hi StalinePos guifg=#1b1b1b guibg=#98c379
+hi StalinePosInv guibg=#1b1b1b guifg=#98c379
+hi StalineBranch guibg=#1b1b1b guifg=#d19a66
+hi StalineFile guibg=#1b1b1b guifg=#757575
+hi StalineDiagnostics guibg=#1b1b1b guifg=#c678dd
+
+function! GetDiagnostics() abort
+    let info = get(b:, 'coc_diagnostic_info', {})
+    if empty(info) | return '' | endif
+    let msgs = []
+    if get(info, 'error', 0)
+        call add(msgs, ' ' . info['error'])
+    endif
+    if get(info, 'warning', 0)
+        call add(msgs, ' ' . info['warning'])
+    endif
+    if get(info, 'info', 0)
+        call add(msgs, ' ' . info['info'])
+    endif
+    return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
+endfunction
+
+lua << EOF
+require('staline').setup{
+    defaults = {
+        expand_null_ls = false,
+        left_separator = "",
+        right_separator = "",
+        full_path = false,
+        line_column = "%l/%L : %c", -- `:h stl` to see all flags.
+
+        fg = "#1b1b1b",
+        bg = "none",
+        inactive_color = "#373535",
+        inactive_bgcolor = "none",
+        true_colors = false,
+        font_active = "none",
+
+        mod_symbol = " ",
+        branch_symbol = " ",
+        cool_symbol = " ",
+        null_ls_symbol = ""
+    },
+    mode_colors = {
+        n = "#56b6c2",
+        i = "#98c379",
+        c = "#61afef",
+        v = "#e06c75"
+    },
+    mode_icons = {
+        n = "",
+        i = "",
+        c = "",
+        v = ""
+    },
+    sections = {
+        left = { 'right_sep', '-mode', 'left_sep', ' ', { 'StalineBranch', 'branch' }, ' ', { 'StalineFile', 'file_name' } },
+        mid = { { 'StalineDiagnostics', '%{GetDiagnostics()}' } },
+        right = {
+            { 'StalinePosInv', '%p%%' }, '  ',
+            { 'StalinePosInv', 'right_sep' }, { 'StalinePos', 'line_column' }, { 'StalinePosInv', 'left_sep' }
+        }
+    },
+    special_table = {
+        NvimTree = { 'NvimTree', ' ' }
+    }
+}
+EOF
 
 "" Bufferline
 lua << EOF
 require("bufferline").setup{
     options = {
-        offsets = {{filetype = "NvimTree", text = "File Explorer" , text_align = "left"}},
+        offsets = { {filetype = "NvimTree", text = "File Explorer" , text_align = "left"} },
         diagnostics = "coc",
-        show_close_icon = false
+        show_close_icon = false,
+        separator_style = { '', '' },
+        indicator = {
+            style = 'underline'
+        },
+        highlights = {
+            fill = {
+                attribute = "bg",
+                highlight = "CursorLine"
+            }
+        },
+        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+            local icon = level:match("error") and " " or " "
+            return " " .. icon .. count
+        end
     }
 }
 EOF
@@ -245,6 +310,7 @@ set sessionoptions+=options
 "" Terminal
 lua << EOF
 require("toggleterm").setup{
+  -- size can be a number or function which is passed the current terminal
   size = 20,
   direction = 'horizontal',
   shading_factor = '3'
@@ -262,7 +328,6 @@ require'nvim-tree'.setup {
     update_cwd = false,
     view = {
         width = 35,
-        height = 35,
     },
     renderer = {
         indent_markers = {
