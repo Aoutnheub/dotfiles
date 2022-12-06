@@ -1,9 +1,9 @@
 #!/bin/bash
-img=$(mktemp /tmp/XXXXXXXXXXXXX.png)
-import -silent -window root $img
-convert $img -scale 10% -scale 1000% $img
+# img=$(mktemp /tmp/XXXXXXXXXXXXX.png)
+# import -silent -window root $img
+# convert $img -scale 10% -scale 1000% $img
 # convert $img -blur 1,5 $img
-i3lock -i $img -k \
+i3lock -i ~/Wallpapers/wallpaper16_1080.png -k \
     --indicator \
     --ind-pos="x+41:y+h-41" \
     --radius=25 \
@@ -36,4 +36,4 @@ i3lock -i $img -k \
     --time-size="32" \
     --verif-size="12" \
     --wrong-size="12"
-rm $img
+# rm $img
