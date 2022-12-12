@@ -140,6 +140,7 @@ require "telescope".setup {
 EOF
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fc <cmd>Telescope git_commits preview=true<cr>
 
 "" Hidden buffers
 nnoremap <C-h> :DeleteHiddenBuffers<CR>
