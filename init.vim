@@ -209,7 +209,7 @@ require('staline').setup{
         v = ""
     },
     sections = {
-        left = { 'right_sep', '-mode', 'left_sep', ' ', { 'StalineBranch', 'branch' }, ' ', { 'StalineFile', 'file_name' } },
+        left = { 'right_sep', '-mode', 'left_sep', ' ', { 'StalineFile', 'file_name' },' ', { 'StalineBranch', 'branch' } },
         mid = { { 'StalineDiagnostics', '%{GetDiagnostics()}' } },
         right = {
             { 'StalinePosInv', '%p%%' }, '  ',
