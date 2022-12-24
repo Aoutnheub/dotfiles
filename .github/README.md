@@ -2,6 +2,7 @@
 
 ---
 
+## Outdated screenshots
 ![Screenshots](screenshots.png)
 
 ## :pencil2: Details
@@ -15,7 +16,7 @@
 - **App launcher**: [Rofi](https://github.com/davatorium/rofi)
 - **Notification daemon**: [Dunst](https://github.com/dunst-project/dunst)
 - **Colorscheme**: Omni One
-- **Browser**: [Brave](https://brave.com/)
+- **Browser**: [Firefox](https://www.mozilla.org/en-US/firefox/new/)
 - **Text Editor**: [Neovim](https://neovim.io/)
 - **Fonts**:
   - [FiraCode Nerd](https://www.nerdfonts.com/font-downloads)
