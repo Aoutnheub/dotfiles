@@ -21,7 +21,6 @@
 - **Fonts**:
   - [FiraCode Nerd](https://www.nerdfonts.com/font-downloads)
   - [Comfortaa](https://fonts.google.com/specimen/Comfortaa)
-  - [JetBrainsMono Nerd](https://www.nerdfonts.com/font-downloads)
 
 ## :art: Colorscheme
 
