@@ -17,7 +17,7 @@
 - **Notification daemon**: [Dunst](https://github.com/dunst-project/dunst)
 - **Colorscheme**: Omni One
 - **Browser**: [Firefox](https://www.mozilla.org/en-US/firefox/new/)
-- **Text Editor**: [Neovim](https://neovim.io/)
+- **Text Editor**: [VSCodium](https://vscodium.com/)
 - **Fonts**:
   - [FiraCode Nerd](https://www.nerdfonts.com/font-downloads)
   - [Comfortaa](https://fonts.google.com/specimen/Comfortaa)
