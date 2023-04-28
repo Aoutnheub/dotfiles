@@ -1,9 +1,9 @@
 # Apps and scripts
 super + t
-    alacritty
+    kitty
 
 super + b
-    brave
+    firefox
 
 super + m
     rofi -show drun
@@ -27,13 +27,16 @@ super + { Left, Right, Up, Down }
 
 # Switch / send to workspace
 super + {0-9}
-    bspc desktop -f {X,I,II,III,IV,V,VI,VII,VIII,IX}
+    bspc desktop -f {X.local,I.local,II.local,III.local,IV.local,V.local,VI.local,VII.local,VIII.local,IX.local}
 super + shift + {0-9}
-    bspc node -d {X,I,II,III,IV,V,VI,VII,VIII,IX}
+    bspc node -d {X.local,I.local,II.local,III.local,IV.local,V.local,VI.local,VII.local,VIII.local,IX.local}
 
 # Monitor
 super + shift + m
     switch-to-monitor.sh; bspc monitor HDMI1 -d I II III IV V VI VII VIII IX X; bspc monitor HDMI1 -g 1920x1080+0+0; bspc config bottom_padding 32; killall polybar; polybar main
+
+super + shift + l
+    switch-to-laptop.sh; bspc monitor eDP1 -d I II III IV V VI VII VIII IX X; bspc monitor eDP1 -g 1920x1080+0+0; bspc config bottom_padding 32; killall polybar; polybar main
 
 # Window state
 super + shift + space

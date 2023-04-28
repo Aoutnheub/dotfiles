@@ -1,7 +1,21 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export ANDROID_HOME:/home/aoutnheub/Android/Sdk/
+SETUVAR --export ANDROID_NDK_HOME:/opt/android\x2dndk/
+SETUVAR --export ANDROID_PLATFORM:/opt/android\x2dndk/platforms/android\x2d16/arch\x2darm
+SETUVAR --export ANDROID_SYSROOT:/opt/android\x2dndk/sysroot
+SETUVAR --export ANDROID_TOOLCHAIN:/opt/android\x2dndk/toolchains/llvm/prebuilt/linux\x2dx86_64/
+SETUVAR --export EDITOR:nvim
+SETUVAR --export --path GOPATH:/home/aoutnheub/go/
+SETUVAR --export GTK_IM_MODULE:fcitx
 SETUVAR --export MICRO_TRUECOLOR:1
-SETUVAR __fish_initialized:3100
+SETUVAR --export ODBC_INCLUDE:\x2dI/data/bonc/bonc_env/unixODBC2/include
+SETUVAR --export ODBC_LIB:\x2dL/data/bonc/bonc_env/unixODBC2/lib
+SETUVAR --export QT_IM_MODULE:fcitx
+SETUVAR --export QT_QPA_PLATFORMTHEME:qt5ct
+SETUVAR --export SAL_ALTGR_COMPOSE:\x1d
+SETUVAR --export XMODIFIERS:\x40im\x1efcitx
+SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:brgreen
@@ -31,3 +45,5 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:yellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_user_paths:/usr/local/lib\x1e/home/aoutnheub/google\x2dcloud\x2dsdk/bin\x1e/usr/local/android_cmdtools/bin\x1e/usr/local/neovide/target/release\x1e/usr/lib/zig\x1e/opt/android\x2dndk/toolchains/llvm/prebuilt/linux\x2dx86_64/bin\x1e/home/aoutnheub/go/bin\x1e/usr/lib/emscripten\x1e/usr/local/v\x1e/home/aoutnheub/\x2ecargo/bin\x1e/usr/local/Odin\x1e/usr/local/zls\x1e/usr/local/exercism\x1e/home/aoutnheub/\x2edotnet/tools\x1e/usr/local/Pixelorama\x1e/home/aoutnheub/\x2elocal/share/coursier/bin\x1e/usr/local/skia\x1e/usr/local/flutter/bin\x1e/home/aoutnheub/\x2epub\x2dcache/bin\x1e/usr/local/dart\x2dsdk/bin\x1e/home/aoutnheub/\x2elocal/bin

@@ -1,0 +1,76 @@
+* {
+    all: unset;
+}
+
+.bar {
+    background-color: #1d1d1d;
+    border-radius: 0 8px 8px 0;
+    padding: 8px;
+}
+
+.top {
+    background-color: #2b2b2b;
+    border-radius: 4px;
+    padding: 4px 0;
+}
+
+.workspaces button {
+    border-radius: 4px;
+    min-width: 28px;
+    min-height: 28px;
+    color: #545454;
+}
+
+.active-ws {
+    color: #98c379;
+}
+
+.occupied-ws {
+    color: #eeffff;
+}
+
+.workspaces button:hover {
+    background-color: #111111;
+}
+
+.memory {
+    color: #d19a66;
+}
+
+.cpu {
+    color: #d19a66;
+}
+
+.battery {
+    color: #98c379;
+}
+
+.volume {
+    color: #e5c07b;
+}
+
+.internet, .time, .date {
+    background-color: #2b2b2b;
+    border-radius: 4px;
+    padding: 4px 0;
+}
+
+.internet {
+    color: #c678dd;
+}
+
+.time {
+    color: #56b6c2;
+}
+
+.date {
+    color: #56b6c2;
+}
+
+.offset-icon {
+    padding-right: 3px;
+}
+
+.offset-icon-2 {
+    padding-right: 6px;
+}

@@ -1,0 +1,129 @@
+(defpoll MEM :interval "2s" `free -m | grep Mem | awk -F' ' '{printf("%.0f", $3/$2*100)}'`)
+(defpoll CPU :interval "2s" `echo 100-$(mpstat --dec=0 1 2 | tail -n 1 | awk -F' ' '{print $NF}') | bc`)
+(defpoll BAT :interval "1m" `./battery.sh`)
+(defpoll VOL :interval "1s" `./volume.sh`)
+(defpoll WLAN :interval "10s" `./internet.sh`)
+(defpoll TIME-HOUR :interval "1m" `date '+%H'`)
+(defpoll TIME-MINUTE :interval "5s" `date '+%M'`)
+(defpoll DATE-DAY :interval "1m" `date '+%d'`)
+(defpoll DATE-MONTH :interval "5m" `date '+%m'`)
+(defpoll DATE-YEAR :interval "1h" `date '+%Y' | cut -c 3-4`)
+(deflisten WORKSPACES "./workspaces.sh")
+
+; (defwidget logo []
+    ; (box
+        ; :class "logo"
+        ; :orientation "v"
+        ; :halign "center"
+        ; :valign "start"
+        ; (label :class "offset-icon" :text "")))
+
+(defwidget memory []
+    (box
+        :class "memory"
+        :orientation "v"
+        :halign "center"
+        :valign "start"
+        (label :class "offset-icon" :text "")
+        MEM))
+
+(defwidget cpu []
+    (box
+        :class "cpu"
+        :orientation "v"
+        :halign "center"
+        :valign "start"
+        (label :class "offset-icon" :text "")
+        CPU))
+
+(defwidget battery []
+    (box
+        :class "battery"
+        :orientation "v"
+        :halign "center"
+        :valign "start"
+        (label :text " ")
+        BAT))
+
+(defwidget volume []
+    (box
+        :class "volume"
+        :orientation "v"
+        :halign "center"
+        :valign "start"
+        (label :class "offset-icon" :text "")
+        VOL))
+
+(defwidget internet []
+    (box
+        :class "internet"
+        :orientation "v"
+        :halign "center"
+        :valign "end"
+        :width "32"
+        :height "32"
+        (label :class "offset-icon-2" :text WLAN)))
+
+(defwidget time []
+    (box
+        :class "time"
+        :orientation "v"
+        :halign "center"
+        :valign "center"
+        :width "32"
+        (label :text TIME-HOUR)
+        (label :text TIME-MINUTE)))
+
+(defwidget date []
+    (box
+        :class "date"
+        :orientation "v"
+        :halign "center"
+        :valign "center"
+        :width "32"
+        (label :text DATE-DAY)
+        (label :text DATE-MONTH)
+        (label :text DATE-YEAR)))
+
+(defwidget workspaces []
+    (literal :content WORKSPACES))
+
+(defwindow main
+    :monitor 0
+    :geometry (geometry
+        :width "48px"
+        :height "80%"
+        :anchor "left center")
+    :stacking "fg"
+    :reserve (struts
+        :distance "48px"
+        :side "left")
+    :windowtype "dock"
+    :wm-ignore false
+    (centerbox
+        :class "bar"
+        :orientation "v"
+        (box
+            :class "top"
+            :orientation "v"
+            :valign "start"
+            :halign "center"
+            :spacing "8"
+            :width "32"
+            (memory)
+            (cpu)
+            (battery)
+            (volume))
+        (box
+            :orientation "v"
+            :valign "center"
+            :halign "center"
+            (workspaces))
+        (box
+            :class "bottom"
+            :orientation "v"
+            :valign "end"
+            :halign "center"
+            (internet)
+            (time)
+            (date))))

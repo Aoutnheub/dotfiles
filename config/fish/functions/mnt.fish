@@ -1,3 +1,3 @@
-function mnt --wraps='sudo mount /dev/sdb1 ~/mount' --description 'alias mnt sudo mount /dev/sdb1 ~/mount'
-  sudo mount /dev/sdb1 ~/mount $argv; 
+function mnt --wraps='sudo mount /dev/sda1 ~/mnt' --description 'alias mnt sudo mount /dev/sda1 ~/mnt'
+  sudo mount /dev/sda1 ~/mnt $argv;
 end

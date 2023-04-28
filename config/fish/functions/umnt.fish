@@ -1,3 +1,3 @@
-function umnt --wraps='sudo umount ~/mount' --description 'alias umnt sudo umount ~/mount'
-  sudo umount ~/mount $argv; 
+function umnt --wraps='sudo umount ~/mnt' --description 'alias umnt sudo umount ~/mnt'
+  sudo umount ~/mnt $argv;
 end

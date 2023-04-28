@@ -3,15 +3,17 @@
 sxhkd &
 
 bspc config split_ratio          0.5
+bspc config merge_overlapping_monitors true
+bspc config border_width 0
+bspc config window_gap 12
+bspc monitor eDP1 -d I II III IV V VI VII VIII IX X
 
 # Fix cursor
 xsetroot -cursor_name left_ptr
 
-bspc config merge_overlapping_monitors true
-
 picom &
 
-change-background.sh &
+change-background.sh
 
 # modprobe v4l2loopback devices=1 max_buffers=2 exclusive_caps=1 card_label="VirtualCam"
 
@@ -28,18 +30,15 @@ change-background.sh &
 # COLOR_WHITE=xrdb -query | grep color7: | tail -1 | awk '{print $NF}'
 
 # Keyboard
-setxkbmap -layout 'us,ro(std)' &
-setxkbmap -option 'grp:alt_shift_toggle' &
-
-bspc config border_width 0
-bspc config window_gap 12
+setxkbmap -layout 'us,ro(std)'
+setxkbmap -option 'grp:alt_shift_toggle'
 
 # Touchpad and mouse
-xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1 &
-xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Drag Enabled" 0 &
-xinput --set-prop "pointer:USB Gaming Mouse" "libinput Accel Speed" -0.5 &
+xinput --set-prop "ELAN1300:00 04F3:3104 Touchpad" "libinput Tapping Enabled" 1
+xinput --set-prop "ELAN1300:00 04F3:3104 Touchpad" "libinput Tapping Drag Enabled" 0
+xinput --set-prop "pointer:USB Gaming Mouse" "libinput Accel Speed" -0.5
 
-polybar main &
+eww open main
 
 # Focus window under cursor
 bspc config focus_follows_pointer true
@@ -47,3 +46,5 @@ bspc config focus_follows_pointer true
 # Rules
 bspc rule -a feh state=floating center=on
 bspc rule -a Qemu-system-x86_64 state=floating center=on
+bspc rule -a "neovide:*:*" state=floating
+bspc rule -a "*:*:Niovim" state=floating rectangle=1600x1024+160+12
