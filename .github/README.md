@@ -2,7 +2,7 @@
 
 ---
 
-## Outdated screenshots
+## Screenshots
 ![Screenshots](screenshots.png)
 
 ## :pencil2: Details
