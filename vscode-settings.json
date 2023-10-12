@@ -1,0 +1,183 @@
+{
+    "workbench.startupEditor": "none",
+    "security.workspace.trust.enabled": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "omnisharp.useGlobalMono": "always",
+    "editor.fontFamily": "'FiraCode Nerd Font Mono'",
+    "editor.fontLigatures": true,
+    "window.title": "${dirty}${activeEditorMedium} ♥ ${rootName} ♥ VSCodium",
+    "editor.cursorStyle": "underline",
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.occurrencesHighlight": false,
+    "editor.selectionHighlight": false,
+    "editor.codeLens": false,
+    "diffEditor.wordWrap": "on",
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "none",
+    "editor.matchBrackets": "never",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.suggest.showSnippets": false,
+    "redhat.telemetry.enabled": false,
+    "csharp.format.enable": false,
+    "csharp.referencesCodeLens.enabled": false,
+    "window.dialogStyle": "custom",
+    "window.titleBarStyle": "custom",
+    "workbench.colorTheme": "Omni-One",
+    "editor.codeLensFontFamily": "'FiraCode Nerd Font Mono'",
+    "scm.inputFontFamily": "editor",
+    "editor.rulers": [],
+    "editor.lightbulb.enabled": false,
+    "files.eol": "\n",
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "go.lintOnSave": "off",
+    "go.buildOnSave": "off",
+    "go.survey.prompt": false,
+    "[go]": {
+        "editor.formatOnSave": false,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": false,
+            "source.organizeImports": false
+        },
+        "editor.suggest.snippetsPreventQuickSuggestions": false
+    },
+    "[dart]": {
+        "editor.formatOnSave": false,
+        "editor.formatOnType": false,
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "editor.lineHeight": 1.3,
+    "clangd.arguments": [
+        "--header-insertion=never",
+        "--function-arg-placeholders=false"
+    ],
+    "dart.enableSdkFormatter": false,
+    "dart.enableSnippets": false,
+    "editor.scrollbar.verticalScrollbarSize": 4,
+    "editor.scrollbar.horizontalScrollbarSize": 4,
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "editor.language.colorizedBracketPairs": [
+        ["(", ")"]
+    ],
+    "editor.bracketPairColorization.enabled": false,
+    "workbench.colorCustomizations": {
+        "editorBracketHighlight.foreground1": "#ff6188",
+        "editorBracketHighlight.foreground2": "#fc9867",
+        "editorBracketHighlight.foreground3": "#ffd866",
+        "editorBracketHighlight.foreground4": "#a9dc76",
+        "editorBracketHighlight.foreground5": "#78dce8",
+        "editorBracketHighlight.foreground6": "#ab9df2",
+        "editorBracketHighlight.unexpectedBracket.foreground": "#4e4e4e"
+    },
+    "scm.inputFontSize": 12,
+    "debug.console.fontSize": 11,
+    "terminal.integrated.fontSize": 11,
+    "csharp.inlayHints.types.enabled": true,
+    "editor.inlayHints.enabled": "off",
+    "dart.enableServerSnippets": false,
+    "javascript.suggest.classMemberSnippets.enabled": false,
+    "typescript.suggest.classMemberSnippets.enabled": false,
+    "emmet.showAbbreviationSuggestions": false,
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono'",
+    "debug.console.fontFamily": "'FiraCode Nerd Font Mono'",
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.enableAppInsights": false,
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "c": "cd $dir && mkdir build -p && clang $fileName -o build/$fileNameWithoutExt && /build/$fileNameWithoutExt",
+        "cpp": "cd $dir && mkdir build -p && clang++ $fileName -o build/$fileNameWithoutExt && build/$fileNameWithoutExt",
+        "zig": "cd $dir && mkdir build -p && zig build-exe $fileName -femit-bin=build/$fileNameWithoutExt && build/$fileNameWithoutExt"
+    },
+    "code-runner.preserveFocus": false,
+    "asm-code-lens.donated": true,
+    "asm-code-lens.enableCompletions": false,
+    "asm-code-lens.enableFindAllReferences": false,
+    "asm-code-lens.enableCodeLenses": false,
+    "dart.devToolsBrowser": "default",
+    "dart.completeFunctionCalls": false,
+    "dart.insertArgumentPlaceholders": false,
+    "html.validate.scripts": false,
+    "dart.lspSnippetTextEdits": false,
+    "zigLanguageClient.path": "/usr/local/zls/zls",
+    "go.editorContextMenuCommands": {
+        "addTags": false,
+        "generateTestForFunction": false,
+        "testCoverage": false,
+        "playground": false,
+        "debugTestAtCursor": false
+    },
+    "go.inlayHints.assignVariableTypes": true,
+    "go.inlayHints.constantValues": true,
+    "go.inlayHints.rangeVariableTypes": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "zigLanguageClient.disabled": false,
+    "explorer.autoReveal": false,
+    "explorer.compactFolders": false,
+    "everforest.darkContrast": "hard",
+    "everforest.darkWorkbench": "high-contrast",
+    "svelte.enable-ts-plugin": true,
+    "svelte.plugin.svelte.note-new-transformation": false,
+    "svelte.plugin.svelte.compilerWarnings": {
+        "css-unused-selector": "ignore"
+    },
+    "svelte.plugin.svelte.defaultScriptLanguage": "ts",
+    "svelte.plugin.svelte.format.enable": false,
+    "elixirLS.dialyzerEnabled": false,
+    "color-highlight.languages": [
+        "*",
+        "!asm-intel-x86-generic",
+        "!zig"
+    ],
+    "html.validate.styles": false,
+    "zls.enable_import_embedfile_argument_completions": true,
+    "zls.inlay_hints_hide_redundant_param_names": true,
+    "v.vls.enable": true,
+    "[gleam]": {
+        "editor.formatOnSave": false
+    },
+    "window.customMenuBarAltFocus": false,
+    "[racket]": {
+        "editor.bracketPairColorization.enabled": true,
+        "editor.rulers": [],
+        "editor.wordSeparators": "()[]{}\",'`;#|"
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "FSharp.dotnetRoot": "/usr/share/dotnet",
+    "files.associations": {
+        "*.fs": "fsharp"
+    },
+    "liveServer.settings.port": 3435,
+    "liveServer.settings.root": "./dist",
+    "zls.path": "/usr/local/bin/zls",
+    "java.import.gradle.java.home": "/usr/lib/jvm/java-17-openjdk",
+    "java.completion.guessMethodArguments": "off",
+    "zls.check_for_update": false,
+    "editor.fontSize": 11,
+    "julia.symbolCacheDownload": true,
+    "julia.enableTelemetry": false,
+    "typst-lsp.exportPdf": "never",
+    "clangd.path": "/home/aoutnheub/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/16.0.2/clangd_16.0.2/bin/clangd",
+    "python.experiments.enabled": false,
+    "python.experiments.optOutFrom": [
+        "All"
+    ],
+    "python.languageServer": "Jedi",
+    "gruvboxMaterial.lightContrast": "soft",
+    "everforest.lightContrast": "soft"
+}
