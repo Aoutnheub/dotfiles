@@ -2,21 +2,14 @@
 (defpoll CPU :interval "2s" `echo 100-$(mpstat --dec=0 1 2 | tail -n 1 | awk -F' ' '{print $NF}') | bc`)
 (defpoll BAT :interval "1m" `./battery.sh`)
 (defpoll VOL :interval "1s" `./volume.sh`)
-(defpoll WLAN :interval "10s" `./internet.sh`)
+(defpoll WLAN :interval "30s" `./internet.sh`)
 (defpoll TIME-HOUR :interval "1m" `date '+%H'`)
 (defpoll TIME-MINUTE :interval "5s" `date '+%M'`)
 (defpoll DATE-DAY :interval "1m" `date '+%d'`)
 (defpoll DATE-MONTH :interval "5m" `date '+%m'`)
 (defpoll DATE-YEAR :interval "1h" `date '+%Y' | cut -c 3-4`)
-(deflisten WORKSPACES "./workspaces.sh")
-
-; (defwidget logo []
-    ; (box
-        ; :class "logo"
-        ; :orientation "v"
-        ; :halign "center"
-        ; :valign "start"
-        ; (label :class "offset-icon" :text "")))
+(deflisten WORKSPACES-LAPTOP "./workspaces-laptop.sh")
+(deflisten WORKSPACES-MONITOR "./workspaces-monitor.sh")
 
 (defwidget memory []
     (box
@@ -85,21 +78,7 @@
         (label :text DATE-MONTH)
         (label :text DATE-YEAR)))
 
-(defwidget workspaces []
-    (literal :content WORKSPACES))
-
-(defwindow main
-    :monitor 0
-    :geometry (geometry
-        :width "48px"
-        :height "80%"
-        :anchor "left center")
-    :stacking "fg"
-    :reserve (struts
-        :distance "48px"
-        :side "left")
-    :windowtype "dock"
-    :wm-ignore false
+(defwidget bar [ws]
     (centerbox
         :class "bar"
         :orientation "v"
@@ -118,7 +97,9 @@
             :orientation "v"
             :valign "center"
             :halign "center"
-            (workspaces))
+            (box :class "workspaces" :orientation "v" :space-evenly true :halign "center" :valign "center"
+                (for w in ws
+                    (button :onclick "${w.on_click}" (label :class "${w.classes}" :text "${w.icon}")))))
         (box
             :class "bottom"
             :orientation "v"
@@ -127,3 +108,32 @@
             (internet)
             (time)
             (date))))
+
+(defwindow main-laptop
+    :monitor "eDP1"
+    :geometry (geometry
+        :width "48px"
+        :height "80%"
+        :anchor "left center")
+    :stacking "bg"
+    :reserve (struts
+        :distance "48px"
+        :side "left")
+    :windowtype "dock"
+    :wm-ignore false
+    (bar :ws WORKSPACES-LAPTOP))
+
+(defwindow main-monitor
+    :monitor "HDMI1"
+    :geometry (geometry
+        :width "48px"
+        :height "80%"
+        :anchor "left center")
+    :stacking "bg"
+    :reserve (struts
+        :distance "48px"
+        :side "left")
+    :windowtype "dock"
+    :wm-ignore false
+    (bar :ws WORKSPACES-MONITOR))
+

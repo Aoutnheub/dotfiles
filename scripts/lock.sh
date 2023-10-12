@@ -3,7 +3,8 @@
 # import -silent -window root $img
 # convert $img -scale 10% -scale 1000% $img
 # convert $img -blur 1,5 $img
-i3lock -i ~/Wallpapers/wallpaper21_1080.png -k \
+WALLPAPER=$HOME/Wallpapers/$(cat $HOME/Wallpapers/wallpaper.txt)
+i3lock -i "$WALLPAPER" -k \
     --indicator \
     --ind-pos="x+41:y+h-41" \
     --radius=25 \
@@ -18,7 +19,7 @@ i3lock -i ~/Wallpapers/wallpaper21_1080.png -k \
     --wrong-align 2 \
     --wrong-text="Failure!" \
     --inside-color="00000000" \
-    --ring-color="1d1d1d" \
+    --ring-color="eeffff" \
     --separator-color="00000000" \
     --insidever-color="00000000" \
     --insidewrong-color="d23c3dff" \
@@ -26,8 +27,8 @@ i3lock -i ~/Wallpapers/wallpaper21_1080.png -k \
     --ringwrong-color="ffffffff" \
     --keyhl-color="d23c3dff" \
     --bshl-color="d23c3dff" \
-    --time-color="1d1d1d" \
-    --verif-color="1d1d1d" \
+    --time-color="eeffff" \
+    --verif-color="eeffff" \
     --wrong-color="d23c3dff" \
     --wrong-font="sans-serif" \
     --verif-font="sans-serif" \

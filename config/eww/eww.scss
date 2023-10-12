@@ -3,13 +3,13 @@
 }
 
 .bar {
-    background-color: #1d1d1d;
+    background-color: #111111;
     border-radius: 0 8px 8px 0;
     padding: 8px;
 }
 
 .top {
-    background-color: #2b2b2b;
+    background-color: #1b1b1b;
     border-radius: 4px;
     padding: 4px 0;
 }
@@ -21,7 +21,7 @@
     color: #545454;
 }
 
-.active-ws {
+.focused-ws {
     color: #98c379;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .workspaces button:hover {
-    background-color: #111111;
+    background-color: #1b1b1b;
 }
 
 .memory {
@@ -50,7 +50,7 @@
 }
 
 .internet, .time, .date {
-    background-color: #2b2b2b;
+    background-color: #1b1b1b;
     border-radius: 4px;
     padding: 4px 0;
 }

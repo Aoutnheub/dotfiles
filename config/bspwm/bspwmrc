@@ -38,7 +38,7 @@ xinput --set-prop "ELAN1300:00 04F3:3104 Touchpad" "libinput Tapping Enabled" 1
 xinput --set-prop "ELAN1300:00 04F3:3104 Touchpad" "libinput Tapping Drag Enabled" 0
 xinput --set-prop "pointer:USB Gaming Mouse" "libinput Accel Speed" -0.5
 
-eww open main
+eww open main-laptop
 
 # Focus window under cursor
 bspc config focus_follows_pointer true
@@ -47,4 +47,4 @@ bspc config focus_follows_pointer true
 bspc rule -a feh state=floating center=on
 bspc rule -a Qemu-system-x86_64 state=floating center=on
 bspc rule -a "neovide:*:*" state=floating
-bspc rule -a "*:*:Niovim" state=floating rectangle=1600x1024+160+12
+bspc rule -a "vscodium:*:*" state=floating rectangle=1540x1056+190+12
