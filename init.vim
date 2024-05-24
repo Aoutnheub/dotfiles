@@ -29,6 +29,8 @@ set mouse=a
 " set colorcolumn=81
 set termguicolors
 set fillchars=stlnc:-
+set laststatus=3
+set signcolumn=auto:2-5
 
 "" Plugins
 call plug#begin('~/.config/nvim/plugged')
@@ -62,6 +64,7 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+autocmd FileType python set guicursor=a:hor15-iCursor
 autocmd BufNewFile,BufRead *.frag,*.vert set ft=text | set syntax=c
 autocmd BufNewFile,BufRead *.fs set ft=fsharp | set syntax=fsharp
 autocmd BufNewFile,BufRead *.cshtml set ft=html
@@ -153,11 +156,7 @@ let g:ophigh_color = 10
 let g:ophigh_color_gui = "#e06c75"
 
 "" Statusline
-hi StalinePos guifg=#1b1b1b guibg=#98c379
-hi StalinePosInv guibg=#1b1b1b guifg=#98c379
-hi StalineBranch guibg=#1b1b1b guifg=#d19a66
-hi StalineFile guibg=#1b1b1b guifg=#757575
-hi StalineDiagnostics guibg=#1b1b1b guifg=#c678dd
+hi StalineGeneral guibg=#2b2b2b guifg=#eeffff
 
 function! GetDiagnostics() abort
     let info = get(b:, 'coc_diagnostic_info', {})
@@ -182,12 +181,12 @@ require('staline').setup{
         left_separator = "",
         right_separator = "",
         full_path = false,
-        line_column = "%l/%L : %c", -- `:h stl` to see all flags.
+        line_column = "Ln %l/%L, Col %c", -- `:h stl` to see all flags.
 
         fg = "#1b1b1b",
-        bg = "none",
-        inactive_color = "#373535",
-        inactive_bgcolor = "none",
+        bg = "#2b2b2b",
+        inactive_color = "#2b2b2b",
+        inactive_bgcolor = "#2b2b2b",
         true_colors = false,
         font_active = "none",
 
@@ -209,12 +208,12 @@ require('staline').setup{
         v = ""
     },
     sections = {
-        left = { 'right_sep', '-mode', 'left_sep', ' ', { 'StalineFile', 'file_name' },' ', { 'StalineBranch', 'branch' } },
-        mid = { { 'StalineDiagnostics', '%{GetDiagnostics()}' } },
-        right = {
-            { 'StalinePosInv', '%p%%' }, '  ',
-            { 'StalinePosInv', 'right_sep' }, { 'StalinePos', 'line_column' }, { 'StalinePosInv', 'left_sep' }
-        }
+        left = {
+            '-mode', ' ', { 'StalineGeneral', 'file_name' }, '%r', ' ',
+            { 'StalineGeneral', 'branch' }, ' ', { 'StalineGeneral', '%{GetDiagnostics()}' }
+        },
+        mid = {},
+        right = { { 'StalineGeneral', 'line_column' } }
     },
     special_table = {
         NvimTree = { 'NvimTree', ' ' }
@@ -226,18 +225,11 @@ EOF
 lua << EOF
 require("bufferline").setup{
     options = {
-        offsets = { {filetype = "NvimTree", text = "File Explorer" , text_align = "left"} },
+        offsets = { { filetype = "NvimTree", text = "" , text_align = "left", separator = true } },
         diagnostics = "coc",
-        show_close_icon = false,
         separator_style = { '', '' },
         indicator = {
             style = 'underline'
-        },
-        highlights = {
-            fill = {
-                attribute = "bg",
-                highlight = "CursorLine"
-            }
         },
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
             local icon = level:match("error") and " " or " "
@@ -267,6 +259,14 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gh :call ShowDocumentation()<CR>
+
+nmap <expr> <silent> <C-d> <SID>select_current_word()
+function! s:select_current_word()
+  if !get(b:, 'coc_cursors_activated', 0)
+    return "\<Plug>(coc-cursors-word)"
+  endif
+  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+endfunc
 
 function! ShowDocumentation()
     if CocAction('hasProvider', 'hover')
@@ -311,10 +311,12 @@ set sessionoptions+=options
 "" Terminal
 lua << EOF
 require("toggleterm").setup{
-  -- size can be a number or function which is passed the current terminal
-  size = 20,
-  direction = 'horizontal',
-  shading_factor = '3'
+    size = 20,
+    direction = 'float',
+    shading_factor = '3',
+    float_opts = {
+        border = 'curved',
+    }
 }
 EOF
 nnoremap <silent> <C-t> :ToggleTerm<CR>
@@ -327,10 +329,13 @@ lua << EOF
 require'nvim-tree'.setup {
     hijack_cursor = true,
     update_cwd = false,
+    auto_reload_on_write = true,
+    sync_root_with_cwd = true,
     view = {
         width = 35,
     },
     renderer = {
+        root_folder_label = false,
         indent_markers = {
             enable = true
         }
@@ -375,3 +380,9 @@ let g:startify_lists = [
             \ { 'type': 'bookmarks', 'header': ['    Bookmarks'] },
             \ { 'type': 'dir', 'header': ['    Current Directory: '. getcwd()] },
             \ ]
+
+if exists('g:neovide')
+    set guifont=FiraCode\ Nerd\ Font\ Mono:h6.5:#e-antialias:#h-slight
+    highlight Normal guibg=#1b1b1b
+    set guicursor=a:hor15-iCursor
+endif
